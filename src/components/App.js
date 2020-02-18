@@ -4,16 +4,6 @@ import Todo from "./Todo";
 
 import uuid from "uuid";
 
-const DATA = [
-  {
-    id: "001",
-    name: "Apple",
-    checked: false,
-    isEditing: false
-  },
-  { id: "002", name: "Oranges", checked: false, isEditing: false }
-];
-
 function createTodo(name) {
   return {
     name,
@@ -24,7 +14,7 @@ function createTodo(name) {
 
 class App extends React.Component {
   state = {
-    todos: DATA
+    todos: this.props.todos
   };
   onCreateTodo = name => {
     const newTodo = createTodo(name);
