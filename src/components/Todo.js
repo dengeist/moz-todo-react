@@ -29,6 +29,7 @@ export default class Todo extends React.Component {
             className="todo-toggle"
             type="checkbox"
             defaultChecked={checked}
+            onChange={this.props.onToggleTodoComplete.bind(null, id)}
           />
           <label className="todo-label" htmlFor={uniq}>
             {name}

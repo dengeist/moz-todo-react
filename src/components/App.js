@@ -42,13 +42,27 @@ class App extends React.Component {
       todos: this.state.todos.filter(t => t.id !== id)
     });
   };
+
+  handleToggleTodoComplete = id => {
+    this.setState({
+      todos: this.state.todos.map(t => ({
+        ...t,
+        checked: t.id === id && !t.checked
+      }))
+    });
+  };
   render() {
     return (
       <div className="todoapp">
         <TodoForm onCreateTodo={this.handleCreateTodo} />
         <ul>
           {this.state.todos.map(d => (
-            <Todo {...d} key={d.id} onDeleteTodo={this.handleDeleteTodo} />
+            <Todo
+              {...d}
+              key={d.id}
+              onToggleTodoComplete={this.handleToggleTodoComplete}
+              onDeleteTodo={this.handleDeleteTodo}
+            />
           ))}
         </ul>
       </div>
