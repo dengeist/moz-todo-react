@@ -88,9 +88,15 @@ body {
 .btn {
   padding: 0.4rem 0.8rem;
   border: 0.2rem solid #4d4d4d;
-  min-width: 6.8rem;
+  width: 7.2rem;
   min-height: 4.4rem;
   cursor: pointer;
+}
+
+@media screen and (min-width: 550px) {
+  .btn {
+    width: 9.2rem;
+  }
 }
 
 .btn__danger {
@@ -228,7 +234,13 @@ body {
   align-self: flex-end;
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 414px) {
+  .todo.editing .todo-text {
+    width: 14rem;
+  }
+}
+
+@media screen and (min-width: 564px) {
   .todo.editing .todo-text {
     width: 100%;
   }
