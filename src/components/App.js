@@ -12,17 +12,19 @@ const DATA = [
   { id: "002", name: "Oranges", checked: false, isEditing: true }
 ];
 
-function App() {
-  return (
-    <div className="todoapp">
-      <TodoForm />
-      <ul>
-        {DATA.map(d => (
-          <Todo {...d} key={d.id} />
-        ))}
-      </ul>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="todoapp">
+        <TodoForm />
+        <ul>
+          {DATA.map(d => (
+            <Todo {...d} key={d.id} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default App;
