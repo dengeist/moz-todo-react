@@ -18,17 +18,13 @@ function createTodo(name) {
   return {
     name,
     id: uuid(),
-    checked: false,
-    isEditing: false
+    checked: false
   };
 }
 
 class App extends React.Component {
   state = {
-    todos: DATA.map(d => ({
-      ...d,
-      isEditing: d.isEditing === undefined ? false : d.isEditing
-    }))
+    todos: DATA
   };
   onCreateTodo = name => {
     const newTodo = createTodo(name);
@@ -48,14 +44,6 @@ class App extends React.Component {
       todos: this.state.todos.map(t => ({
         ...t,
         checked: t.id === id && !t.checked
-      }))
-    });
-  };
-  onToggleTodoEditing = id => {
-    this.setState({
-      todos: this.state.todos.map(t => ({
-        ...t,
-        isEditing: t.id === id && !t.isEditing
       }))
     });
   };

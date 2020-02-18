@@ -1,8 +1,17 @@
 import React from "react";
 
 export default class Todo extends React.Component {
+  state = {
+    isEditing: false,
+    name: this.props.name
+  };
+
+  onToggleTodoEditing = () => {
+    this.setState({ isEditing: !this.state.isEditing });
+  };
   render() {
-    const { id, name, checked, isEditing } = this.props;
+    const { id, checked } = this.props;
+    const { name, isEditing } = this.state;
     const uniq = "todo-" + id;
     return isEditing ? (
       <li className="todo editing">
@@ -16,7 +25,7 @@ export default class Todo extends React.Component {
           <button
             type="button"
             className="btn todo-cancel"
-            onClick={this.props.onToggleTodoEditing.bind(null, id)}
+            onClick={this.onToggleTodoEditing.bind(null, id)}
           >
             Cancel
           </button>
@@ -43,7 +52,7 @@ export default class Todo extends React.Component {
           <button
             type="button"
             className="btn todo-edit"
-            onClick={this.props.onToggleTodoEditing.bind(null, id)}
+            onClick={this.onToggleTodoEditing.bind(null, id)}
           >
             Edit
           </button>
