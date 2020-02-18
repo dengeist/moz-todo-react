@@ -188,7 +188,8 @@ body {
   margin-right: 0;
 }
 
-.todo {
+.todo:not(.editing),
+.todo.editing > form {
   display: flex;
   flex-direction: row;
   padding: 1em 0;

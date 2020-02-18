@@ -9,30 +9,42 @@ export default class Todo extends React.Component {
   onToggleTodoEditing = () => {
     this.setState({ isEditing: !this.state.isEditing });
   };
+
+  handleTodoNameChange(e) {
+    this.setState({
+      name: e.target.value
+    });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
   render() {
     const { id, checked } = this.props;
     const { name, isEditing } = this.state;
     const uniq = "todo-" + id;
     return isEditing ? (
       <li className="todo editing">
-        <div className="form-group">
-          <label className="todo-label" htmlFor={uniq}>
-            Rename {name}
-          </label>
-          <input id={uniq} className="todo-text" type="text" />
-        </div>
-        <div className="btn-group">
-          <button
-            type="button"
-            className="btn todo-cancel"
-            onClick={this.onToggleTodoEditing.bind(null, id)}
-          >
-            Cancel
-          </button>
-          <button type="button" className="btn btn__primary todo-edit">
-            Save
-          </button>
-        </div>
+        <form onSubmit={this.handleSubmit} data-todo-id={id}>
+          <div className="form-group">
+            <label className="todo-label" htmlFor={uniq}>
+              Rename {name}
+            </label>
+            <input id={uniq} className="todo-text" type="text" />
+          </div>
+          <div className="btn-group">
+            <button
+              type="button"
+              className="btn todo-cancel"
+              onClick={this.onToggleTodoEditing.bind(null, id)}
+            >
+              Cancel
+            </button>
+            <button type="submit" className="btn btn__primary todo-edit">
+              Save
+            </button>
+          </div>
+        </form>
       </li>
     ) : (
       <li className="todo">
