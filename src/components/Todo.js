@@ -38,7 +38,11 @@ export default class Todo extends React.Component {
           <button type="button" className="btn todo-edit">
             Edit
           </button>
-          <button type="button" className="btn btn__danger todo-delete">
+          <button
+            type="button"
+            className="btn btn__danger todo-delete"
+            onClick={this.props.onDeleteTodo.bind(null, id)}
+          >
             Delete
           </button>
         </div>

@@ -36,13 +36,19 @@ class App extends React.Component {
       todos: [...this.state.todos, newTodo]
     });
   };
+
+  handleDeleteTodo = id => {
+    this.setState({
+      todos: this.state.todos.filter(t => t.id !== id)
+    });
+  };
   render() {
     return (
       <div className="todoapp">
         <TodoForm onCreateTodo={this.handleCreateTodo} />
         <ul>
           {this.state.todos.map(d => (
-            <Todo {...d} key={d.id} />
+            <Todo {...d} key={d.id} onDeleteTodo={this.handleDeleteTodo} />
           ))}
         </ul>
       </div>
