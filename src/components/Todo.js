@@ -10,27 +10,38 @@ export default class Todo extends React.Component {
     this.setState({ isEditing: !this.state.isEditing });
   };
 
-  handleTodoNameChange(e) {
+  handleTodoNameChange = e => {
     this.setState({
       name: e.target.value
     });
-  }
+  };
 
   handleSubmit = e => {
     e.preventDefault();
+    const todoId = e.target.dataset.todoId;
+    const newName = this.state.name;
+
+    this.props.onUpdateTodoName(todoId, newName);
+    this.setState({ isEditing: false });
   };
   render() {
-    const { id, checked } = this.props;
     const { name, isEditing } = this.state;
+    const { id, checked } = this.props;
+    const initialName = this.props.name;
     const uniq = "todo-" + id;
     return isEditing ? (
       <li className="todo editing">
         <form onSubmit={this.handleSubmit} data-todo-id={id}>
           <div className="form-group">
             <label className="todo-label" htmlFor={uniq}>
-              Rename {name}
+              Rename {initialName}
             </label>
-            <input id={uniq} className="todo-text" type="text" />
+            <input
+              id={uniq}
+              className="todo-text"
+              type="text"
+              onChange={this.handleTodoNameChange}
+            />
           </div>
           <div className="btn-group">
             <button

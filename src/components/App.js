@@ -49,6 +49,7 @@ class App extends React.Component {
   };
 
   onUpdateTodoName = (id, name) => {
+    console.log(id, name);
     this.setState({
       todos: this.state.todos.map(t => {
         if (t.id === id) {
