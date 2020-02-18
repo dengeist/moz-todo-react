@@ -21,7 +21,7 @@ export default class Todo extends React.Component {
             Cancel
           </button>
           <button type="button" className="btn btn__primary todo-edit">
-            Edit
+            Save
           </button>
         </div>
       </li>
