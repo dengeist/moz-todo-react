@@ -120,7 +120,7 @@ body {
 }
 .btn__fw:focus {
   outline-color: #fff;
-  outline-offset: -0.4rem;
+  outline-offset: -0.6rem;
 }
 /* End global styles */
 
@@ -192,17 +192,24 @@ body {
 .todo.editing > form {
   display: flex;
   flex-direction: row;
-  padding: 1em 0;
+  padding: 0.5em 0;
   position: relative;
   align-items: center;
   justify-content: space-between;
 }
 
 .todo:nth-of-type(odd) {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.25em;
 }
 .todo:nth-of-type(even) {
-  padding-top: 0.5em;
+  padding-top: 0.25em;
+}
+
+@media screen and (min-width: 550px) {
+  .todo:not(.editing),
+  .todo.editing > form {
+    padding: 0;
+  }
 }
 
 .todo-text {
