@@ -205,12 +205,17 @@ body {
   padding-top: 0.5em;
 }
 
-.todo.editing .todo-text {
-  width: 11rem;
+.todo-text {
+  width: 14rem;
+  padding: 0.4rem 0.8rem;
   border: 2px solid #565656;
 }
 
-@media screen and (min-width: 324px) {
+.todo.editing .btn-group:last-child {
+  align-self: flex-end;
+}
+
+@media screen and (min-width: 364px) {
   .todo.editing .todo-text {
     width: 100%;
   }
@@ -218,12 +223,6 @@ body {
 
 .todo > :last-child {
   margin-left: auto;
-}
-
-@media screen and (min-width: 550px) {
-  .todo.editing .todo-text {
-    width: 100%;
-  }
 }
 
 .todo.editing > .btn-group {
