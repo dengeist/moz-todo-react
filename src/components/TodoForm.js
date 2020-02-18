@@ -32,7 +32,7 @@ export default class TodoForm extends React.Component {
           value={this.state.todoText}
           onChange={this.handleChange}
         />
-        <button type="submit" className="btn btn__primary btn__fw">
+        <button type="submit" className="btn btn__primary new-todo-btn">
           Add
         </button>
       </form>
