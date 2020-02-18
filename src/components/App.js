@@ -28,10 +28,16 @@ class App extends React.Component {
       d => (d.isEditing = d.isEditing === undefined ? false : d.isEditing)
     )
   };
+  handleCreateTodo = name => {
+    const newTodo = createTodo(name);
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    });
+  };
   render() {
     return (
       <div className="todoapp">
-        <TodoForm />
+        <TodoForm onCreateTodo={this.handleCreateTodo} />
         <ul>
           {DATA.map(d => (
             <Todo {...d} key={d.id} />
