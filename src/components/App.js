@@ -18,15 +18,17 @@ function createTodo(name) {
   return {
     name,
     id: uuid(),
-    checked: false
+    checked: false,
+    isEditing: false
   };
 }
 
 class App extends React.Component {
   state = {
-    todos: DATA.map(
-      d => (d.isEditing = d.isEditing === undefined ? false : d.isEditing)
-    )
+    todos: DATA.map(d => ({
+      ...d,
+      isEditing: d.isEditing === undefined ? false : d.isEditing
+    }))
   };
   handleCreateTodo = name => {
     const newTodo = createTodo(name);
@@ -39,7 +41,7 @@ class App extends React.Component {
       <div className="todoapp">
         <TodoForm onCreateTodo={this.handleCreateTodo} />
         <ul>
-          {DATA.map(d => (
+          {this.state.todos.map(d => (
             <Todo {...d} key={d.id} />
           ))}
         </ul>
