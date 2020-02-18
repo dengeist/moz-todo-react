@@ -59,6 +59,17 @@ class App extends React.Component {
       }))
     });
   };
+
+  onUpdateTodoName = (id, name) => {
+    this.setState({
+      todos: this.state.todos.map(t => {
+        if (t.id === id) {
+          t.name = name;
+        }
+        return t;
+      })
+    });
+  };
   render() {
     return (
       <div className="todoapp">
@@ -71,6 +82,7 @@ class App extends React.Component {
               onToggleTodoComplete={this.onToggleTodoComplete}
               onToggleTodoEditing={this.onToggleTodoEditing}
               onDeleteTodo={this.onDeleteTodo}
+              onUpdateTodoName={this.onUpdateTodoName}
             />
           ))}
         </ul>
