@@ -54,10 +54,6 @@ input {
   overflow: visible;
 }
 
-input[type="text"] {
-  border-radius: 0;
-}
-
 body {
   width: 100%;
   max-width: 68rem;
@@ -160,7 +156,6 @@ body {
 .new-todo-input {
   flex: 3 2 50%;
   min-width: 0;
-  align-self: flex-end;
   padding: 1em;
   border: 2px solid #000;
   border-right: 0;
@@ -174,11 +169,9 @@ body {
 }
 
 .new-todo-btn {
-  align-self: flex-end;
   padding: 1em 1em;
-  height: 100%;
-  margin-top: 0.4rem;
   font-weight: 400;
+  border-left: 0;
 }
 .new-todo-btn:focus {
   outline-color: #fff;
