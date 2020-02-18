@@ -68,7 +68,6 @@ class App extends React.Component {
               {...d}
               key={d.id}
               onToggleTodoComplete={this.onToggleTodoComplete}
-              onToggleTodoEditing={this.onToggleTodoEditing}
               onDeleteTodo={this.onDeleteTodo}
               onUpdateTodoName={this.onUpdateTodoName}
             />
