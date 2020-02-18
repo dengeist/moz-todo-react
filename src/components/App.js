@@ -30,20 +30,20 @@ class App extends React.Component {
       isEditing: d.isEditing === undefined ? false : d.isEditing
     }))
   };
-  handleCreateTodo = name => {
+  onCreateTodo = name => {
     const newTodo = createTodo(name);
     this.setState({
       todos: [...this.state.todos, newTodo]
     });
   };
 
-  handleDeleteTodo = id => {
+  onDeleteTodo = id => {
     this.setState({
       todos: this.state.todos.filter(t => t.id !== id)
     });
   };
 
-  handleToggleTodoComplete = id => {
+  onToggleTodoComplete = id => {
     this.setState({
       todos: this.state.todos.map(t => ({
         ...t,
@@ -51,7 +51,7 @@ class App extends React.Component {
       }))
     });
   };
-  handleToggleTodoEditing = id => {
+  onToggleTodoEditing = id => {
     this.setState({
       todos: this.state.todos.map(t => ({
         ...t,
@@ -62,15 +62,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="todoapp">
-        <TodoForm onCreateTodo={this.handleCreateTodo} />
+        <TodoForm onCreateTodo={this.onCreateTodo} />
         <ul>
           {this.state.todos.map(d => (
             <Todo
               {...d}
               key={d.id}
-              onToggleTodoComplete={this.handleToggleTodoComplete}
-              onToggleTodoEditing={this.handleToggleTodoEditing}
-              onDeleteTodo={this.handleDeleteTodo}
+              onToggleTodoComplete={this.onToggleTodoComplete}
+              onToggleTodoEditing={this.onToggleTodoEditing}
+              onDeleteTodo={this.onDeleteTodo}
             />
           ))}
         </ul>
