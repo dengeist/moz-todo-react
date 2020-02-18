@@ -11,7 +11,7 @@ const DATA = [
     checked: false,
     isEditing: false
   },
-  { id: "002", name: "Oranges", checked: false, isEditing: true }
+  { id: "002", name: "Oranges", checked: false, isEditing: false }
 ];
 
 function createTodo(name) {
@@ -51,6 +51,14 @@ class App extends React.Component {
       }))
     });
   };
+  handleToggleTodoEditing = id => {
+    this.setState({
+      todos: this.state.todos.map(t => ({
+        ...t,
+        isEditing: t.id === id && !t.isEditing
+      }))
+    });
+  };
   render() {
     return (
       <div className="todoapp">
@@ -61,6 +69,7 @@ class App extends React.Component {
               {...d}
               key={d.id}
               onToggleTodoComplete={this.handleToggleTodoComplete}
+              onToggleTodoEditing={this.handleToggleTodoEditing}
               onDeleteTodo={this.handleDeleteTodo}
             />
           ))}

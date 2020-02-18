@@ -13,7 +13,11 @@ export default class Todo extends React.Component {
           <input id={uniq} className="todo-text" type="text" />
         </div>
         <div className="btn-group">
-          <button type="button" className="btn todo-cancel">
+          <button
+            type="button"
+            className="btn todo-cancel"
+            onClick={this.props.onToggleTodoEditing.bind(null, id)}
+          >
             Cancel
           </button>
           <button type="button" className="btn btn__primary todo-edit">
@@ -36,7 +40,11 @@ export default class Todo extends React.Component {
           </label>
         </div>
         <div className="btn-group">
-          <button type="button" className="btn todo-edit">
+          <button
+            type="button"
+            className="btn todo-edit"
+            onClick={this.props.onToggleTodoEditing.bind(null, id)}
+          >
             Edit
           </button>
           <button
