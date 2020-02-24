@@ -49,7 +49,7 @@ export default class Todo extends React.Component {
         <form onSubmit={this.handleSubmit} data-todo-id={id}>
           <div className="form-group">
             <label className="todo-label" htmlFor={uniq}>
-              Rename {initialName}
+              New name for {initialName}
             </label>
             <input
               id={uniq}
