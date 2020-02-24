@@ -44,6 +44,7 @@ export default class Todo extends React.Component {
     const { id, checked } = this.props;
     const initialName = this.props.name;
     const uniq = "todo-" + id;
+
     return isEditing ? (
       <li className="todo editing">
         <form onSubmit={this.handleSubmit} data-todo-id={id}>
@@ -66,9 +67,13 @@ export default class Todo extends React.Component {
               onClick={this.onToggleTodoEditing.bind(null, id)}
             >
               Cancel
+              <span className="visually-hidden">renaming {initialName}</span>
             </button>
             <button type="submit" className="btn btn__primary todo-edit">
               Save
+              <span className="visually-hidden">
+                new name for {initialName}
+              </span>
             </button>
           </div>
         </form>
@@ -94,14 +99,14 @@ export default class Todo extends React.Component {
             onClick={this.onToggleTodoEditing.bind(null, id)}
             ref={this.toggleEditBtn}
           >
-            Edit
+            Edit <span className="visually-hidden">{initialName}</span>
           </button>
           <button
             type="button"
             className="btn btn__danger todo-delete"
             onClick={this.props.onDeleteTodo.bind(null, id)}
           >
-            Delete
+            Delete <span className="visually-hidden">{initialName}</span>
           </button>
         </div>
       </li>
