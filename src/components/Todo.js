@@ -30,11 +30,11 @@ export default class Todo extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     // if we are have just clicked `edit`, focus on the text input to rename the todo
-    if (this.state.isEditing) {
+    if (!prevState.isEditing && this.state.isEditing) {
       this.renameTodoInput.current.focus();
     }
     // if we have saved or cancelled, focus back on the edit button
-    if (!this.state.isEditing) {
+    if (prevState.isEditing && !this.state.isEditing) {
       this.toggleEditBtn.current.focus();
     }
   }
