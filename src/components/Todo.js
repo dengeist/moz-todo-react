@@ -24,6 +24,21 @@ export default class Todo extends React.Component {
     this.props.onUpdateTodoName(todoId, newName);
     this.setState({ isEditing: false });
   };
+
+  renameTodoInput = React.createRef();
+  toggleEditBtn = React.createRef();
+
+  componentDidUpdate(prevProps, prevState) {
+    // if we are have just clicked `edit`, focus on the text input to rename the todo
+    if (this.state.isEditing) {
+      this.renameTodoInput.current.focus();
+    }
+    // if we have saved or cancelled, focus back on the edit button
+    if (!this.state.isEditing) {
+      this.toggleEditBtn.current.focus();
+    }
+  }
+
   render() {
     const { name, isEditing } = this.state;
     const { id, checked } = this.props;
@@ -41,6 +56,7 @@ export default class Todo extends React.Component {
               className="todo-text"
               type="text"
               onChange={this.handleTodoNameChange}
+              ref={this.renameTodoInput}
             />
           </div>
           <div className="btn-group">
@@ -76,6 +92,7 @@ export default class Todo extends React.Component {
             type="button"
             className="btn todo-edit"
             onClick={this.onToggleTodoEditing.bind(null, id)}
+            ref={this.toggleEditBtn}
           >
             Edit
           </button>
