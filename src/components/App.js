@@ -16,6 +16,9 @@ class App extends React.Component {
   state = {
     todos: this.props.todos
   };
+
+  newTodoInput = React.createRef();
+
   onCreateTodo = name => {
     const newTodo = createTodo(name);
     this.setState({
@@ -24,9 +27,16 @@ class App extends React.Component {
   };
 
   onDeleteTodo = id => {
-    this.setState({
-      todos: this.state.todos.filter(t => t.id !== id)
-    });
+    this.setState(
+      {
+        todos: this.state.todos.filter(t => t.id !== id)
+      },
+      () => {
+        // Move DOM focus back to the new todo form
+        // after deleting
+        this.newTodoInput.current.focus();
+      }
+    );
   };
 
   onToggleTodoComplete = id => {
@@ -48,10 +58,11 @@ class App extends React.Component {
       })
     });
   };
+
   render() {
     return (
       <div className="todoapp">
-        <TodoForm onCreateTodo={this.onCreateTodo} />
+        <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
         <ul>
           {this.state.todos.map(d => (
             <Todo

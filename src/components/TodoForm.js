@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class TodoForm extends React.Component {
+class TodoForm extends React.Component {
   state = {
     todoText: ""
   };
@@ -31,6 +31,7 @@ export default class TodoForm extends React.Component {
           autoComplete="off"
           value={this.state.todoText}
           onChange={this.handleChange}
+          ref={this.props.newTodoInput}
         />
         <button type="submit" className="btn btn__primary new-todo-btn">
           Add
@@ -39,3 +40,7 @@ export default class TodoForm extends React.Component {
     );
   }
 }
+
+export default React.forwardRef((props, ref) => (
+  <TodoForm newTodoInput={ref} {...props} />
+));
