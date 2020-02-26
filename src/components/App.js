@@ -13,11 +13,22 @@ function createTodo(name) {
   };
 }
 
-function buildTodoList(d) {
+function filterTodos(todo) {
+  const filterMap = {
+    all: true,
+    active: !todo.checked,
+    completed: todo.checked
+  };
+  const filterValue = this.props.location.pathname.substr(1);
+
+  return filterMap[filterValue];
+}
+
+function buildTodoList(todo) {
   return (
     <Todo
-      {...d}
-      key={d.id}
+      {...todo}
+      key={todo.id}
       onToggleTodoComplete={this.onToggleTodoComplete}
       onDeleteTodo={this.onDeleteTodo}
       onUpdateTodoName={this.onUpdateTodoName}
@@ -73,17 +84,14 @@ class App extends React.Component {
   };
 
   render() {
+    const todoList = this.state.todos
+      .filter(filterTodos, this)
+      .map(buildTodoList, this);
     return (
       <div className="todoapp stack-large">
-        <TodoForm
-          onCreateTodo={this.onCreateTodo}
-          ref={this.newTodoInput}
-          path="/"
-        />
+        <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
         <div className="todo-filters">
-          <h2 class="list-heading">
-            {this.state.todos.length} tasks remaining
-          </h2>
+          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
           <div className="todo-filters-group">
             <Link to="/all" className="link-btn">
               All
@@ -96,9 +104,7 @@ class App extends React.Component {
             </Link>
           </div>
         </div>
-        <ul className="todo-list stack-small stack-exception">
-          {this.state.todos.map(buildTodoList, this)}
-        </ul>
+        <ul className="todo-list stack-small stack-exception">{todoList}</ul>
       </div>
     );
   }
