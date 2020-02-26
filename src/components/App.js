@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "@reach/router";
 import uuid from "uuid";
 
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import NavLink from "./NavLink";
 
 function createTodo(name) {
   return {
@@ -93,15 +93,15 @@ class App extends React.Component {
         <div className="todo-filters">
           <h2 class="list-heading">{todoList.length} tasks remaining</h2>
           <div className="todo-filters-group">
-            <Link to="/" className="link-btn">
+            <NavLink to="/" className="link-btn">
               All
-            </Link>
-            <Link to="/active" className="link-btn">
+            </NavLink>
+            <NavLink to="/active" className="link-btn">
               Active
-            </Link>
-            <Link to="/completed" className="link-btn">
+            </NavLink>
+            <NavLink to="/completed" className="link-btn">
               Completed
-            </Link>
+            </NavLink>
           </div>
         </div>
         <ul className="todo-list stack-small stack-exception">{todoList}</ul>
