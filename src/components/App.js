@@ -13,9 +13,20 @@ function createTodo(name) {
   };
 }
 
+function buildTodoList(d) {
+  return (
+    <Todo
+      {...d}
+      key={d.id}
+      onToggleTodoComplete={this.onToggleTodoComplete}
+      onDeleteTodo={this.onDeleteTodo}
+      onUpdateTodoName={this.onUpdateTodoName}
+    />
+  );
+}
+
 class App extends React.Component {
   state = {
-    filter: "",
     todos: this.props.todos
   };
 
@@ -86,15 +97,7 @@ class App extends React.Component {
           </div>
         </div>
         <ul className="todo-list stack-small stack-exception">
-          {this.state.todos.map(d => (
-            <Todo
-              {...d}
-              key={d.id}
-              onToggleTodoComplete={this.onToggleTodoComplete}
-              onDeleteTodo={this.onDeleteTodo}
-              onUpdateTodoName={this.onUpdateTodoName}
-            />
-          ))}
+          {this.state.todos.map(buildTodoList, this)}
         </ul>
       </div>
     );
