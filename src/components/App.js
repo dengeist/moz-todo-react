@@ -15,7 +15,7 @@ function createTodo(name) {
 
 function filterTodos(todo) {
   const filterMap = {
-    all: true,
+    "": true,
     active: !todo.checked,
     completed: todo.checked
   };
@@ -93,7 +93,7 @@ class App extends React.Component {
         <div className="todo-filters">
           <h2 class="list-heading">{todoList.length} tasks remaining</h2>
           <div className="todo-filters-group">
-            <Link to="/all" className="link-btn">
+            <Link to="/" className="link-btn">
               All
             </Link>
             <Link to="/active" className="link-btn">
