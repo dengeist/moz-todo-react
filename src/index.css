@@ -92,6 +92,13 @@ body {
   min-height: 4.4rem;
   cursor: pointer;
 }
+.link-btn {
+  color: inherit;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+}
 
 @media screen and (min-width: 550px) {
   .btn {
@@ -185,16 +192,26 @@ body {
 }
 
 .todo-filters {
-  margin-top: 0.7em;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
-.todo-filters > * {
+.list-heading {
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.todo-filters-group {
+  display: flex;
+  margin-left: auto;
+}
+
+.todo-filters-group > * {
   margin-right: 0.5em;
 }
 
-.todo-filters > :last-child {
+.todo-filters-group > :last-child {
   margin-right: 0;
 }
 
@@ -286,4 +303,8 @@ body {
   .stack-large > * + * {
     margin-top: 2.8rem;
   }
+}
+
+.stack-exception {
+  margin-top: 0;
 }

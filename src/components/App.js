@@ -66,12 +66,23 @@ class App extends React.Component {
       <LiveAnnouncer>
         <div className="todoapp stack-large">
           <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-          <div className="todo-filters-group stack-exception">
-            <button className="btn__small">All</button>
-            <button className="btn__small">All</button>
-            <button className="btn__small">All</button>
+          <div className="todo-filters">
+            <h2 class="list-heading">
+              {this.state.todos.length} tasks remaining
+            </h2>
+            <div className="todo-filters-group">
+              <a href="#" className="link-btn">
+                All
+              </a>
+              <a href="#" className="link-btn">
+                Active
+              </a>
+              <a href="#" className="link-btn">
+                Completed
+              </a>
+            </div>
           </div>
-          <ul className="todo-list stack-small">
+          <ul className="todo-list stack-small stack-exception">
             {this.state.todos.map(d => (
               <Todo
                 {...d}
