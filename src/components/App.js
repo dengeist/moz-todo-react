@@ -61,9 +61,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="todoapp">
+      <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <ul>
+        <ul className="todo-list stack-small">
           {this.state.todos.map(d => (
             <Todo
               {...d}
