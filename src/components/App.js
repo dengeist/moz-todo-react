@@ -56,7 +56,7 @@ class App extends React.Component {
     this.setState({
       todos: this.state.todos.map(t => ({
         ...t,
-        checked: t.id === id && !t.checked
+        checked: t.id === id ? !t.checked : t.checked
       }))
     });
   };
