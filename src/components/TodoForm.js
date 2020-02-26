@@ -1,5 +1,5 @@
 import React from "react";
-import { LiveAnnouncer, LiveMessage } from "react-aria-live";
+import { LiveMessage } from "react-aria-live";
 
 class TodoForm extends React.Component {
   state = {
@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <LiveAnnouncer>
+      <>
         <LiveMessage message={this.state.errorMsg} aria-live="polite" />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-todo-input" className="new-todo-label">
@@ -44,7 +44,7 @@ class TodoForm extends React.Component {
             Add
           </button>
         </form>
-      </LiveAnnouncer>
+      </>
     );
   }
 }

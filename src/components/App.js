@@ -1,8 +1,10 @@
 import React from "react";
-import TodoForm from "./TodoForm";
-import Todo from "./Todo";
+import { LiveAnnouncer } from "react-aria-live";
 
 import uuid from "uuid";
+
+import TodoForm from "./TodoForm";
+import Todo from "./Todo";
 
 function createTodo(name) {
   return {
@@ -61,20 +63,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="todoapp stack-large">
-        <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <ul className="todo-list stack-small">
-          {this.state.todos.map(d => (
-            <Todo
-              {...d}
-              key={d.id}
-              onToggleTodoComplete={this.onToggleTodoComplete}
-              onDeleteTodo={this.onDeleteTodo}
-              onUpdateTodoName={this.onUpdateTodoName}
-            />
-          ))}
-        </ul>
-      </div>
+      <LiveAnnouncer>
+        <div className="todoapp stack-large">
+          <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
+          <div className="todo-filters-group stack-exception">
+            <button className="btn__small">All</button>
+            <button className="btn__small">All</button>
+            <button className="btn__small">All</button>
+          </div>
+          <ul className="todo-list stack-small">
+            {this.state.todos.map(d => (
+              <Todo
+                {...d}
+                key={d.id}
+                onToggleTodoComplete={this.onToggleTodoComplete}
+                onDeleteTodo={this.onDeleteTodo}
+                onUpdateTodoName={this.onUpdateTodoName}
+              />
+            ))}
+          </ul>
+        </div>
+      </LiveAnnouncer>
     );
   }
 }
