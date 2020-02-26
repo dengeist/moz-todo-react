@@ -81,8 +81,8 @@ body {
   margin-top: 0.4rem;
 }
 
-.btn-group > .btn:first-child {
-  margin-right: 0.4rem;
+.btn-group > .btn:last-child {
+  margin-left: 0.6rem;
 }
 
 .btn {
