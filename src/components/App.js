@@ -91,7 +91,6 @@ class App extends React.Component {
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
         <div className="todo-filters">
-          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
           <div className="todo-filters-group">
             <NavLink to="/" className="link-btn">
               All
@@ -103,6 +102,7 @@ class App extends React.Component {
               Completed
             </NavLink>
           </div>
+          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
         </div>
         <ul className="todo-list stack-small stack-exception">{todoList}</ul>
       </div>

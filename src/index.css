@@ -199,6 +199,10 @@ body {
   flex-wrap: wrap;
 }
 
+.todo-filters > :last-child {
+  margin-left: auto;
+}
+
 .list-heading {
   font-size: 1.8rem;
   line-height: 1.25;
@@ -207,7 +211,6 @@ body {
 
 .todo-filters-group {
   display: flex;
-  margin-left: auto;
 }
 
 .todo-filters-group > * {
