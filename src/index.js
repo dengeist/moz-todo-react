@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router } from "@reach/router";
+import { LiveAnnouncer } from "react-aria-live";
+
 import "./index.css";
 import "./custom-form-controls.css";
+
 import App from "./components/App";
 
 const DATA = [
@@ -22,4 +26,11 @@ const DATA = [
   }
 ];
 
-ReactDOM.render(<App todos={DATA} />, document.getElementById("root"));
+ReactDOM.render(
+  <LiveAnnouncer>
+    <Router>
+      <App todos={DATA} default />
+    </Router>
+  </LiveAnnouncer>,
+  document.getElementById("root")
+);
