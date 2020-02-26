@@ -10,7 +10,7 @@
 }
 
 html {
-  font: calc(100% * 0.625) / 1.15 sans-serif;
+  font: 62.5% / 1.15 sans-serif;
 }
 
 ul {
@@ -271,9 +271,19 @@ body {
 }
 
 .stack-small > * + * {
-  margin-top: 1.4rem;
+  margin-top: 1.25rem;
 }
 
 .stack-large > * + * {
-  margin-top: 2.8rem;
+  margin-top: 2.5rem;
+}
+
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem;
+  }
+
+  .stack-large > * + * {
+    margin-top: 2.8rem;
+  }
 }
