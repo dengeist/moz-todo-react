@@ -110,15 +110,25 @@ class App extends React.Component {
     const todoList = this.state.todos
       .filter(filterTodos, this)
       .map(buildTodo, this);
+    const headingText = todoList.length + " tasks remaining";
 
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
         <div className="flex-equidistant">
           <div>{filterBtns}</div>
-          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
+          <h2 id="list-heading" class="list-heading">
+            {headingText}
+          </h2>
         </div>
-        <ul className="todo-list stack-small stack-exception">{todoList}</ul>
+        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+        <ul
+          role="list"
+          className="todo-list stack-small stack-exception"
+          aria-labelledby="list-heading"
+        >
+          {todoList}
+        </ul>
       </div>
     );
   }
