@@ -4,7 +4,7 @@ import uuid from "uuid";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import Filters from "./Filters";
-import FilterBtn from "./FilterBtn";
+import StatefulBtn from "./StatefulBtn";
 
 import TodoList from "./TodoList";
 
@@ -99,13 +99,13 @@ class App extends React.Component {
       .map(buildTodoList, this);
 
     const filterBtns = FILTER_VALUES.map((f, i) => (
-      <FilterBtn
+      <StatefulBtn
         pressed={this.state.filter === f || undefined}
         onClick={this.onSetFilter.bind(null, f)}
         key={i}
       >
         {f}
-      </FilterBtn>
+      </StatefulBtn>
     ));
     return (
       <div className="todoapp stack-large">
