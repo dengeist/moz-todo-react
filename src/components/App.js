@@ -8,6 +8,8 @@ import StatefulBtn from "./StatefulBtn";
 
 import TodoList from "./TodoList";
 
+const FILTER_VALUES = ["ALL", "ACTIVE", "COMPLETED"];
+
 function createTodo(name) {
   return {
     name,
@@ -39,19 +41,20 @@ function buildTodo(todo) {
   );
 }
 
-function buildFilterBtn(filterName, i) {
+function buildFilterBtn(filterName) {
+  const matchesCurrentFilter = this.state.filter === filterName;
+  const key = uuid();
+  const onClick = matchesCurrentFilter
+    ? () => {}
+    : this.onSetFilter.bind(null, filterName);
+  const pressed = matchesCurrentFilter || undefined;
+
   return (
-    <StatefulBtn
-      pressed={this.state.filter === filterName || undefined}
-      onClick={this.onSetFilter.bind(null, filterName)}
-      key={uuid()}
-    >
+    <StatefulBtn key={key} onClick={onClick} pressed={pressed}>
       {filterName}
     </StatefulBtn>
   );
 }
-
-const FILTER_VALUES = ["ALL", "ACTIVE", "COMPLETED"];
 
 class App extends React.Component {
   state = {
