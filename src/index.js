@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router } from "@reach/router";
 import { LiveAnnouncer } from "react-aria-live";
 
 import "./index.css";
