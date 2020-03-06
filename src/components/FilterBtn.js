@@ -1,12 +1,9 @@
 import React from "react";
 
-const noop = () => {};
-
 export default function FilterBtn(props) {
-  let onClick = props.onClick || noop;
-  let pressed = props.pressed;
+  let { className, onClick, pressed } = props;
 
-  let className = (props.className || "") + " filter-btn";
+  className += " filter-btn";
   if (pressed) {
     className += " filter-btn__active";
   }
@@ -24,3 +21,9 @@ export default function FilterBtn(props) {
     </button>
   );
 }
+
+FilterBtn.defaultProps = {
+  className: "",
+  onClick: () => {},
+  pressed: false
+};
