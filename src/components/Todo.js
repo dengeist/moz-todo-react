@@ -18,7 +18,7 @@ export default class Todo extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const todoId = e.target.dataset.todoId;
+    const todoId = this.props.id;
     const newName = this.state.name;
 
     this.props.onUpdateTodoName(todoId, newName);
@@ -47,7 +47,7 @@ export default class Todo extends React.Component {
 
     return isEditing ? (
       <li className="todo editing">
-        <form onSubmit={this.handleSubmit} data-todo-id={id}>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label className="todo-label" htmlFor={uniq}>
               New name for {initialName}
