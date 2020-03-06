@@ -91,7 +91,7 @@ body {
   min-height: 4.4rem;
   cursor: pointer;
 }
-.link-btn {
+.filter-btn {
   color: inherit;
   font-size: 1.8rem;
   line-height: 1.25;
@@ -99,7 +99,7 @@ body {
   text-decoration: none;
 }
 
-.link-btn__active {
+.filter-btn__active {
   text-decoration: underline;
 }
 

@@ -6,9 +6,9 @@ export default function FilterBtn(props) {
   let onClick = props.onClick || noop;
   let pressed = props.pressed;
 
-  let className = (props.className || "") + " link-btn";
+  let className = (props.className || "") + " filter-btn";
   if (pressed) {
-    className += " link-btn__active";
+    className += " filter-btn__active";
   }
 
   const buttonAttrs = {
