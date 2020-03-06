@@ -197,31 +197,10 @@ body {
   outline-offset: -0.6rem;
 }
 
-.todo-filters {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.todo-filters > :last-child {
-  margin-left: auto;
-}
-
 .list-heading {
   font-size: 1.8rem;
   line-height: 1.25;
   margin: 0;
-}
-
-.todo-filters-group {
-  display: flex;
-}
-
-.todo-filters-group > * {
-  margin-right: 0.5em;
-}
-
-.todo-filters-group > :last-child {
-  margin-right: 0;
 }
 
 .todo:not(.editing),
