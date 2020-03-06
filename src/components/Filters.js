@@ -6,7 +6,7 @@ export default function Filters(props) {
     <div className="todo-filters">
       <div className="todo-filters-group">
         <FilterBtn className="foo">All</FilterBtn>
-        <FilterBtn pressed={true}>Active</FilterBtn>
+        <FilterBtn on={true}>Active</FilterBtn>
         <FilterBtn>Completed</FilterBtn>
       </div>
     </div>

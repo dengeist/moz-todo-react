@@ -1,24 +1,30 @@
 import React from "react";
 
+const noop = () => {};
+
 export default class FilterBtn extends React.Component {
   state = {
-    pressed: Boolean(this.props.pressed)
+    on: Boolean(this.props.on)
   };
 
+  press = this.props.onPress || noop;
+
   render() {
-    let pressed = this.state.pressed;
+    let on = this.state.on;
 
     let className = (this.props.className || "") + " link-btn";
-    if (pressed) {
+    if (on) {
       className += " link-btn__active";
     }
 
-    const stateAttrs = {
+    const buttonAttrs = {
+      ...this.props,
       className: className.trim(),
-      "aria-pressed": pressed
+      "aria-pressed": on,
+      onClick: this.press
     };
     return (
-      <button type="button" {...stateAttrs}>
+      <button type="button" {...buttonAttrs}>
         {this.props.children}
       </button>
     );
