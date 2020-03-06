@@ -44,42 +44,13 @@ export default class Todo extends React.Component {
     const { id, checked } = this.props;
     const initialName = this.props.name;
     const uniq = "todo-" + id;
+    let className = "todo";
+    if (isEditing) {
+      className += " isEditing";
+    }
 
-    return isEditing ? (
-      <li className="todo editing">
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label className="todo-label" htmlFor={uniq}>
-              New name for {initialName}
-            </label>
-            <input
-              id={uniq}
-              className="todo-text"
-              type="text"
-              onChange={this.handleTodoNameChange}
-              ref={this.renameTodoInput}
-            />
-          </div>
-          <div className="btn-group">
-            <button
-              type="button"
-              className="btn todo-cancel"
-              onClick={this.onToggleTodoEditing.bind(null, id)}
-            >
-              Cancel
-              <span className="visually-hidden">renaming {initialName}</span>
-            </button>
-            <button type="submit" className="btn btn__primary todo-edit">
-              Save
-              <span className="visually-hidden">
-                new name for {initialName}
-              </span>
-            </button>
-          </div>
-        </form>
-      </li>
-    ) : (
-      <li className="todo">
+    const defaultTemplate = (
+      <>
         <div className="c-cb">
           <input
             id={uniq}
@@ -109,6 +80,43 @@ export default class Todo extends React.Component {
             Delete <span className="visually-hidden">{initialName}</span>
           </button>
         </div>
+      </>
+    );
+
+    const editTemplate = (
+      <form onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <label className="todo-label" htmlFor={uniq}>
+            New name for {initialName}
+          </label>
+          <input
+            id={uniq}
+            className="todo-text"
+            type="text"
+            onChange={this.handleTodoNameChange}
+            ref={this.renameTodoInput}
+          />
+        </div>
+        <div className="btn-group">
+          <button
+            type="button"
+            className="btn todo-cancel"
+            onClick={this.onToggleTodoEditing.bind(null, id)}
+          >
+            Cancel
+            <span className="visually-hidden">renaming {initialName}</span>
+          </button>
+          <button type="submit" className="btn btn__primary todo-edit">
+            Save
+            <span className="visually-hidden">new name for {initialName}</span>
+          </button>
+        </div>
+      </form>
+    );
+
+    return (
+      <li className={className}>
+        {isEditing ? editTemplate : defaultTemplate}
       </li>
     );
   }
