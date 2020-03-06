@@ -3,10 +3,7 @@ import uuid from "uuid";
 
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import FilterGroup from "./FilterGroup";
 import StatefulBtn from "./StatefulBtn";
-
-import TodoList from "./TodoList";
 
 const FILTER_VALUES = ["ALL", "ACTIVE", "COMPLETED"];
 
@@ -117,8 +114,9 @@ class App extends React.Component {
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <FilterGroup>{filterBtns}</FilterGroup>
-        <TodoList>{todoList}</TodoList>
+        {filterBtns}
+        <h2 class="list-heading">{todoList.length} tasks remaining</h2>
+        <ul className="todo-list stack-small stack-exception">{todoList}</ul>
       </div>
     );
   }
