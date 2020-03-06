@@ -27,7 +27,7 @@ function filterTodos(todo) {
   return filterMap[filterValue];
 }
 
-function buildTodoList(todo) {
+function buildTodo(todo) {
   return (
     <Todo
       {...todo}
@@ -96,7 +96,7 @@ class App extends React.Component {
   render() {
     const todoList = this.state.todos
       .filter(filterTodos, this)
-      .map(buildTodoList, this);
+      .map(buildTodo, this);
 
     const filterBtns = FILTER_VALUES.map((f, i) => (
       <StatefulBtn
