@@ -114,8 +114,10 @@ class App extends React.Component {
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        {filterBtns}
-        <h2 class="list-heading">{todoList.length} tasks remaining</h2>
+        <div className="flex-equidistant">
+          <div>{filterBtns}</div>
+          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
+        </div>
         <ul className="todo-list stack-small stack-exception">{todoList}</ul>
       </div>
     );

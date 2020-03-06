@@ -296,3 +296,12 @@ body {
 .stack-exception {
   margin-top: 0;
 }
+
+.flex-equidistant {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-equidistant > :last-child {
+  margin-left: auto;
+}
