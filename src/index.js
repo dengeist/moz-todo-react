@@ -28,9 +28,7 @@ const DATA = [
 
 ReactDOM.render(
   <LiveAnnouncer>
-    <Router>
-      <App todos={DATA} default />
-    </Router>
+    <App todos={DATA} default />
   </LiveAnnouncer>,
   document.getElementById("root")
 );

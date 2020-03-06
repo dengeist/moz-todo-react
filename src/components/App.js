@@ -20,7 +20,7 @@ function filterTodos(todo) {
     active: !todo.checked,
     completed: todo.checked
   };
-  const filterValue = this.props.location.pathname.substr(1);
+  const filterValue = this.state.filter;
 
   return filterMap[filterValue];
 }
@@ -39,6 +39,7 @@ function buildTodoList(todo) {
 
 class App extends React.Component {
   state = {
+    filter: "",
     todos: this.props.todos
   };
 
