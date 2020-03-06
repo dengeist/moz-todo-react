@@ -3,7 +3,7 @@ import uuid from "uuid";
 
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import Filters from "./Filters";
+import FilterGroup from "./FilterGroup";
 import StatefulBtn from "./StatefulBtn";
 
 import TodoList from "./TodoList";
@@ -36,6 +36,18 @@ function buildTodo(todo) {
       onDeleteTodo={this.onDeleteTodo}
       onUpdateTodoName={this.onUpdateTodoName}
     />
+  );
+}
+
+function buildFilterBtn(filterName, i) {
+  return (
+    <StatefulBtn
+      pressed={this.state.filter === filterName || undefined}
+      onClick={this.onSetFilter.bind(null, filterName)}
+      key={uuid()}
+    >
+      {filterName}
+    </StatefulBtn>
   );
 }
 
@@ -94,23 +106,15 @@ class App extends React.Component {
   };
 
   render() {
+    const filterBtns = FILTER_VALUES.map(buildFilterBtn, this);
     const todoList = this.state.todos
       .filter(filterTodos, this)
       .map(buildTodo, this);
 
-    const filterBtns = FILTER_VALUES.map((f, i) => (
-      <StatefulBtn
-        pressed={this.state.filter === f || undefined}
-        onClick={this.onSetFilter.bind(null, f)}
-        key={i}
-      >
-        {f}
-      </StatefulBtn>
-    ));
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <Filters>{filterBtns}</Filters>
+        <FilterGroup>{filterBtns}</FilterGroup>
         <TodoList>{todoList}</TodoList>
       </div>
     );
