@@ -46,7 +46,7 @@ export default class Todo extends React.Component {
     const uniq = "todo-" + id;
     let className = "todo";
     if (isEditing) {
-      className += " isEditing";
+      className += " editing";
     }
 
     const defaultTemplate = (
