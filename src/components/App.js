@@ -3,7 +3,8 @@ import uuid from "uuid";
 
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import NavLink from "./NavLink";
+import Filters from "./Filters";
+import TodoList from "./TodoList";
 
 function createTodo(name) {
   return {
@@ -90,21 +91,8 @@ class App extends React.Component {
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <div className="todo-filters">
-          <div className="todo-filters-group">
-            <NavLink to="/" className="link-btn">
-              All
-            </NavLink>
-            <NavLink to="/active" className="link-btn">
-              Active
-            </NavLink>
-            <NavLink to="/completed" className="link-btn">
-              Completed
-            </NavLink>
-          </div>
-          <h2 class="list-heading">{todoList.length} tasks remaining</h2>
-        </div>
-        <ul className="todo-list stack-small stack-exception">{todoList}</ul>
+        <Filters />
+        <TodoList>{todoList}</TodoList>
       </div>
     );
   }
