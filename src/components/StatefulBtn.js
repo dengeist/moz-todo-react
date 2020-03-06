@@ -3,9 +3,9 @@ import React from "react";
 export default function FilterBtn(props) {
   let { className, onClick, pressed } = props;
 
-  className += " filter-btn";
+  className += " stateful-btn";
   if (pressed) {
-    className += " filter-btn__active";
+    className += " stateful-btn__active";
   }
 
   const buttonAttrs = {
