@@ -5,7 +5,7 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import StatefulBtn from "./StatefulBtn";
 
-const FILTER_VALUES = ["ALL", "ACTIVE", "COMPLETED"];
+const FILTER_VALUES = ["all", "active", "completed"];
 
 function createTodo(name) {
   return {
@@ -17,9 +17,9 @@ function createTodo(name) {
 
 function filterTodos(todo) {
   const filterMap = {
-    ALL: true,
-    ACTIVE: !todo.checked,
-    COMPLETED: todo.checked
+    all: true,
+    active: !todo.checked,
+    completed: todo.checked
   };
   const filterValue = this.state.filter;
 
@@ -38,9 +38,9 @@ function buildTodo(todo) {
   );
 }
 
-function buildFilterBtn(filterName) {
+function buildFilterBtn(filterName, i) {
   const matchesCurrentFilter = this.state.filter === filterName;
-  const key = uuid();
+  const key = filterName + "-" + i;
   const onClick = matchesCurrentFilter
     ? () => {}
     : this.onSetFilter.bind(null, filterName);
@@ -55,7 +55,7 @@ function buildFilterBtn(filterName) {
 
 class App extends React.Component {
   state = {
-    filter: "ALL",
+    filter: "all",
     todos: this.props.todos
   };
 
