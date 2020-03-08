@@ -21,29 +21,27 @@ class App extends React.Component {
             Add
           </button>
         </form>
-        <div className="justify-between">
-          <div>
-            <button
-              type="button"
-              className="toggle-btn toggle-btn__active"
-              aria-pressed="true"
-            >
-              all
-            </button>
-            <button type="button" className="toggle-btn" aria-pressed="false">
-              active
-            </button>
-            <button type="button" className="toggle-btn" aria-pressed="false">
-              completed
-            </button>
-          </div>
-          <h2 id="list-heading" className="list-heading">
-            3 tasks remaining
-          </h2>
+        <div className="filters btn-group stack-exception">
+          <button
+            type="button"
+            className="toggle-btn toggle-btn__active"
+            aria-pressed="true"
+          >
+            all
+          </button>
+          <button type="button" className="toggle-btn" aria-pressed="false">
+            active
+          </button>
+          <button type="button" className="toggle-btn" aria-pressed="false">
+            completed
+          </button>
         </div>
+        <h2 id="list-heading" className="list-heading">
+          3 tasks remaining
+        </h2>
         <ul
           role="list"
-          className="todo-list stack-large"
+          className="todo-list stack-large stack-exception"
           aria-labelledby="list-heading"
         >
           <li className="todo stack-small">

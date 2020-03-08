@@ -131,6 +131,20 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-group > * {
+  flex: 1 1 auto;
+}
+
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+
 /* End global styles */
 
 .todoapp {
@@ -194,6 +208,12 @@ body {
   outline-offset: -0.6rem;
 }
 
+.filters {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
 .list-heading {
   font-size: 1.8rem;
   line-height: 1.25;
@@ -216,15 +236,6 @@ body {
 
 .todo.editing > form > * + * {
   margin-top: 1.4rem;
-}
-
-.todo .btn-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.todo .btn-group > * {
-  flex: 0 0 49%;
 }
 
 .todo-label {
@@ -281,7 +292,7 @@ body {
 }
 
 .stack-exception {
-  margin-top: 0;
+  margin-top: 1.2rem;
 }
 
 .justify-between {
