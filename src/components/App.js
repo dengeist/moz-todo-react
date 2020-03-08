@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <div className="todoapp stack-large">
         <form>
-          <label for="new-todo-input" className="new-todo-label">
+          <label htmlFor="new-todo-input" className="new-todo-label">
             What needs to be done?
           </label>
           <input
@@ -15,7 +15,7 @@ class App extends React.Component {
             id="new-todo-input"
             className="new-todo-input input__fw"
             name="text"
-            autocomplete="off"
+            autoComplete="off"
           />
           <button type="submit" className="btn btn__primary new-todo-btn">
             Add
@@ -49,7 +49,7 @@ class App extends React.Component {
           <li className="todo stack-small">
             <div className="c-cb">
               <input id="todo-0" type="checkbox" />
-              <label className="todo-label" for="todo-0">
+              <label className="todo-label" htmlFor="todo-0">
                 Eat
               </label>
             </div>
@@ -65,7 +65,7 @@ class App extends React.Component {
           <li className="todo stack-small">
             <div className="c-cb">
               <input id="todo-1" type="checkbox" />
-              <label className="todo-label" for="todo-1">
+              <label className="todo-label" htmlFor="todo-1">
                 Sleep
               </label>
             </div>
@@ -81,7 +81,7 @@ class App extends React.Component {
           <li className="todo stack-small">
             <div className="c-cb">
               <input id="todo-2" type="checkbox" />
-              <label className="todo-label" for="todo-2">
+              <label className="todo-label" htmlFor="todo-2">
                 Repeat
               </label>
             </div>
