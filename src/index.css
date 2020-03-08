@@ -297,14 +297,12 @@ body {
   margin-top: 0;
 }
 
-.flex-equidistant {
+.justify-between {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-.flex-equidistant > * {
+.justify-between > * {
   display: flex;
-}
-
-.flex-equidistant > :last-child {
-  margin-left: auto;
 }

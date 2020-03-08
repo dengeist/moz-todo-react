@@ -117,7 +117,7 @@ class App extends React.Component {
     return (
       <div className="todoapp stack-large">
         <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <div className="flex-equidistant">
+        <div className="justify-between">
           <div>{filterBtns}</div>
           <h2 id="list-heading" class="list-heading">
             {headingText}
