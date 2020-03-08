@@ -101,16 +101,11 @@ body {
   border: none;
   background: none;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .toggle-btn__active {
   text-decoration: underline;
-}
-
-@media screen and (min-width: 550px) {
-  .btn {
-    width: 9.2rem;
-  }
 }
 
 .btn__danger {
@@ -175,12 +170,6 @@ body {
   font-weight: 300;
   padding: 0.8rem;
   text-align: center;
-}
-
-@media screen and (min-width: 321px) {
-  .new-todo-label {
-    font-size: 2.4rem;
-  }
 }
 
 .new-todo-input {
@@ -293,14 +282,4 @@ body {
 
 .stack-exception {
   margin-top: 1.2rem;
-}
-
-.justify-between {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.justify-between > * {
-  display: flex;
 }
