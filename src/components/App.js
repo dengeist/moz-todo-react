@@ -43,10 +43,10 @@ class App extends React.Component {
         </div>
         <ul
           role="list"
-          class="todo-list stack-small stack-exception"
+          class="todo-list stack-large"
           aria-labelledby="list-heading"
         >
-          <li class="todo">
+          <li class="todo stack-small">
             <div class="c-cb">
               <input id="todo-0" type="checkbox" />
               <label class="todo-label" for="todo-0">
@@ -62,7 +62,7 @@ class App extends React.Component {
               </button>
             </div>
           </li>
-          <li class="todo">
+          <li class="todo stack-small">
             <div class="c-cb">
               <input id="todo-1" type="checkbox" />
               <label class="todo-label" for="todo-1">
@@ -78,7 +78,7 @@ class App extends React.Component {
               </button>
             </div>
           </li>
-          <li class="todo">
+          <li class="todo stack-small">
             <div class="c-cb">
               <input id="todo-2" type="checkbox" />
               <label class="todo-label" for="todo-2">

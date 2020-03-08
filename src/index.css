@@ -81,9 +81,6 @@ body {
   margin-top: 0.4rem;
 }
 
-.btn-group > .btn:last-child {
-  margin-left: 0.6rem;
-}
 .btn {
   padding: 0.4rem 0.8rem;
   border: 0.2rem solid #4d4d4d;
@@ -131,10 +128,6 @@ body {
   background-color: #000;
 }
 /* End global styles */
-
-.todo-label {
-  display: block;
-}
 
 .todoapp {
   background: #fff;
@@ -203,6 +196,31 @@ body {
   margin: 0;
 }
 
+/* Todo item styles */
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.todo > * {
+  flex: 0 0 100%;
+}
+
+.todo > .btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo > .btn-group > * {
+  flex: 0 0 49%;
+}
+
+.todo-label {
+  display: block;
+}
+
 .todo:not(.editing),
 .todo.editing > form {
   display: flex;
@@ -249,10 +267,6 @@ body {
   .todo.editing .todo-text {
     width: 100%;
   }
-}
-
-.todo > :last-child {
-  margin-left: auto;
 }
 
 .todo.editing > .btn-group {
