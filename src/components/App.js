@@ -1,134 +1,99 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
 import React from "react";
-import uuid from "uuid";
-
-import TodoForm from "./TodoForm";
-import Todo from "./Todo";
-import ToggleBtn from "./ToggleBtn";
-
-const FILTER_VALUES = ["all", "active", "completed"];
-
-function createTodo(name) {
-  return {
-    name,
-    id: uuid(),
-    checked: false
-  };
-}
-
-function filterTodos(todo) {
-  const filterMap = {
-    all: true,
-    active: !todo.checked,
-    completed: todo.checked
-  };
-  const filterValue = this.state.filter;
-
-  return filterMap[filterValue];
-}
-
-function buildTodo(todo) {
-  return (
-    <Todo
-      {...todo}
-      key={todo.id}
-      onToggleTodoComplete={this.onToggleTodoComplete}
-      onDeleteTodo={this.onDeleteTodo}
-      onUpdateTodoName={this.onUpdateTodoName}
-    />
-  );
-}
-
-function buildFilterBtn(filterName, i) {
-  const matchesCurrentFilter = this.state.filter === filterName;
-  const key = filterName + "-" + i;
-  const onClick = matchesCurrentFilter
-    ? () => {}
-    : this.onSetFilter.bind(null, filterName);
-  const pressed = matchesCurrentFilter || undefined;
-
-  return (
-    <ToggleBtn key={key} onClick={onClick} pressed={pressed}>
-      {filterName}
-    </ToggleBtn>
-  );
-}
 
 class App extends React.Component {
-  state = {
-    filter: "all",
-    todos: this.props.todos
-  };
-
-  newTodoInput = React.createRef();
-
-  onCreateTodo = name => {
-    const newTodo = createTodo(name);
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    });
-  };
-
-  onDeleteTodo = id => {
-    this.setState(
-      {
-        todos: this.state.todos.filter(t => t.id !== id)
-      },
-      () => {
-        // Move DOM focus back to the new todo form
-        // after deleting
-        this.newTodoInput.current.focus();
-      }
-    );
-  };
-
-  onToggleTodoComplete = id => {
-    this.setState({
-      todos: this.state.todos.map(t => ({
-        ...t,
-        checked: t.id === id ? !t.checked : t.checked
-      }))
-    });
-  };
-
-  onUpdateTodoName = (id, name) => {
-    this.setState({
-      todos: this.state.todos.map(t => {
-        if (t.id === id) {
-          t.name = name;
-        }
-        return t;
-      })
-    });
-  };
-
-  onSetFilter = filter => {
-    this.setState({ filter: filter });
-  };
-
   render() {
-    const filterBtns = FILTER_VALUES.map(buildFilterBtn, this);
-    const todoList = this.state.todos
-      .filter(filterTodos, this)
-      .map(buildTodo, this);
-    const headingText = todoList.length + " tasks remaining";
-
     return (
       <div className="todoapp stack-large">
-        <TodoForm onCreateTodo={this.onCreateTodo} ref={this.newTodoInput} />
-        <div className="justify-between">
-          <div>{filterBtns}</div>
+        <form>
+          <label for="new-todo-input" class="new-todo-label">
+            What needs to be done?
+          </label>
+          <input
+            type="text"
+            id="new-todo-input"
+            class="new-todo-input input__fw"
+            name="text"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn__primary new-todo-btn">
+            Add
+          </button>
+        </form>
+        <div class="justify-between">
+          <div>
+            <button
+              type="button"
+              class="toggle-btn toggle-btn__active"
+              aria-pressed="true"
+            >
+              all
+            </button>
+            <button type="button" class="toggle-btn" aria-pressed="false">
+              active
+            </button>
+            <button type="button" class="toggle-btn" aria-pressed="false">
+              completed
+            </button>
+          </div>
           <h2 id="list-heading" class="list-heading">
-            {headingText}
+            3 tasks remaining
           </h2>
         </div>
         <ul
           role="list"
-          className="todo-list stack-small stack-exception"
+          class="todo-list stack-small stack-exception"
           aria-labelledby="list-heading"
         >
-          {todoList}
+          <li class="todo">
+            <div class="c-cb">
+              <input id="todo-0" type="checkbox" />
+              <label class="todo-label" for="todo-0">
+                Apples
+              </label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn todo-edit">
+                Edit <span class="visually-hidden">Apples</span>
+              </button>
+              <button type="button" class="btn btn__danger todo-delete">
+                Delete <span class="visually-hidden">Apples</span>
+              </button>
+            </div>
+          </li>
+          <li class="todo">
+            <div class="c-cb">
+              <input id="todo-1" type="checkbox" />
+              <label class="todo-label" for="todo-1">
+                Oranges
+              </label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn todo-edit">
+                Edit <span class="visually-hidden">Oranges</span>
+              </button>
+              <button type="button" class="btn btn__danger todo-delete">
+                Delete <span class="visually-hidden">Oranges</span>
+              </button>
+            </div>
+          </li>
+          <li class="todo">
+            <div class="c-cb">
+              <input id="todo-2" type="checkbox" />
+              <label class="todo-label" for="todo-2">
+                Tangerines
+              </label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn todo-edit">
+                Edit <span class="visually-hidden">Tangerines</span>
+              </button>
+              <button type="button" class="btn btn__danger todo-delete">
+                Delete <span class="visually-hidden">Tangerines</span>
+              </button>
+            </div>
+          </li>
         </ul>
       </div>
     );
