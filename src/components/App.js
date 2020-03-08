@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
+
 import React from "react";
 import uuid from "uuid";
 
@@ -121,7 +123,6 @@ class App extends React.Component {
             {headingText}
           </h2>
         </div>
-        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
         <ul
           role="list"
           className="todo-list stack-small stack-exception"
