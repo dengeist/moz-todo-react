@@ -158,8 +158,6 @@ body {
 }
 .new-todo-label {
   flex: 0 0 100%;
-  font-family: inherit;
-  font-weight: inherit;
   line-height: 1.4;
   font-weight: 300;
   padding: 0.8rem;
@@ -167,7 +165,7 @@ body {
 }
 
 .new-todo-input {
-  flex: 8 8 auto;
+  flex: 4 4 auto;
   min-width: 0;
   padding: 1em;
   border: 2px solid #000;
@@ -181,7 +179,6 @@ body {
 
 .new-todo-btn {
   flex: 1 1 auto;
-  padding: 1em;
   font-weight: 400;
   border-left: 0;
 }
