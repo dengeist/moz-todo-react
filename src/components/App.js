@@ -5,7 +5,7 @@ import uuid from "uuid";
 
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import StatefulBtn from "./StatefulBtn";
+import ToggleBtn from "./ToggleBtn";
 
 const FILTER_VALUES = ["all", "active", "completed"];
 
@@ -49,9 +49,9 @@ function buildFilterBtn(filterName, i) {
   const pressed = matchesCurrentFilter || undefined;
 
   return (
-    <StatefulBtn key={key} onClick={onClick} pressed={pressed}>
+    <ToggleBtn key={key} onClick={onClick} pressed={pressed}>
       {filterName}
-    </StatefulBtn>
+    </ToggleBtn>
   );
 }
 

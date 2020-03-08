@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function FilterBtn(props) {
+export default function ToggleBtn(props) {
   let { className, pressed, ...rest } = props;
 
-  className += " stateful-btn";
+  className += " toggle-btn";
   if (pressed) {
-    className += " stateful-btn__active";
+    className += " toggle-btn__active";
   }
 
   const buttonAttrs = {
@@ -21,7 +21,7 @@ export default function FilterBtn(props) {
   );
 }
 
-FilterBtn.defaultProps = {
+ToggleBtn.defaultProps = {
   className: "",
   onClick: () => {},
   pressed: false
