@@ -50,15 +50,15 @@ class App extends React.Component {
             <div class="c-cb">
               <input id="todo-0" type="checkbox" />
               <label class="todo-label" for="todo-0">
-                Apples
+                Eat
               </label>
             </div>
             <div class="btn-group">
               <button type="button" class="btn todo-edit">
-                Edit <span class="visually-hidden">Apples</span>
+                Edit <span class="visually-hidden">Eat</span>
               </button>
               <button type="button" class="btn btn__danger todo-delete">
-                Delete <span class="visually-hidden">Apples</span>
+                Delete <span class="visually-hidden">Eat</span>
               </button>
             </div>
           </li>
@@ -66,15 +66,15 @@ class App extends React.Component {
             <div class="c-cb">
               <input id="todo-1" type="checkbox" />
               <label class="todo-label" for="todo-1">
-                Oranges
+                Sleep
               </label>
             </div>
             <div class="btn-group">
               <button type="button" class="btn todo-edit">
-                Edit <span class="visually-hidden">Oranges</span>
+                Edit <span class="visually-hidden">Sleep</span>
               </button>
               <button type="button" class="btn btn__danger todo-delete">
-                Delete <span class="visually-hidden">Oranges</span>
+                Delete <span class="visually-hidden">Sleep</span>
               </button>
             </div>
           </li>
@@ -82,15 +82,15 @@ class App extends React.Component {
             <div class="c-cb">
               <input id="todo-2" type="checkbox" />
               <label class="todo-label" for="todo-2">
-                Tangerines
+                Repeat
               </label>
             </div>
             <div class="btn-group">
               <button type="button" class="btn todo-edit">
-                Edit <span class="visually-hidden">Tangerines</span>
+                Edit <span class="visually-hidden">Repeat</span>
               </button>
               <button type="button" class="btn btn__danger todo-delete">
-                Delete <span class="visually-hidden">Tangerines</span>
+                Delete <span class="visually-hidden">Repeat</span>
               </button>
             </div>
           </li>
