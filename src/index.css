@@ -88,24 +88,19 @@ body {
 .btn {
   padding: 0.4rem 0.8rem;
   border: 0.2rem solid #4d4d4d;
-  width: 7.2rem;
   min-height: 4.4rem;
   cursor: pointer;
-}
-.toggle-btn {
-  color: inherit;
-  font-size: 1.8rem;
-  line-height: 1.25;
-  padding: 0.2rem 0.4rem;
-  text-decoration: none;
-  border: none;
-  background: none;
   text-transform: capitalize;
-  cursor: pointer;
+}
+.btn.toggle-btn {
+  font-size: 1.8rem;
+  border-width: 1px;
+  border-color: #d3d3d3;
 }
 
-.toggle-btn__active {
+.btn.toggle-btn__active {
   text-decoration: underline;
+  border-color: #4d4d4d;
 }
 
 .btn__danger {
@@ -163,7 +158,6 @@ body {
 }
 .new-todo-label {
   flex: 0 0 100%;
-  font-size: 1.8rem;
   font-family: inherit;
   font-weight: inherit;
   line-height: 1.4;
@@ -173,13 +167,11 @@ body {
 }
 
 .new-todo-input {
-  flex: 3 2 50%;
+  flex: 8 8 auto;
   min-width: 0;
   padding: 1em;
   border: 2px solid #000;
   border-right: 0;
-  background: rgba(0, 0, 0, 0.003);
-  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
 
 .new-todo-input:focus {
@@ -188,7 +180,8 @@ body {
 }
 
 .new-todo-btn {
-  padding: 1em 1em;
+  flex: 1 1 auto;
+  padding: 1em;
   font-weight: 400;
   border-left: 0;
 }
