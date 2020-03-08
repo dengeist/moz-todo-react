@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function FilterBtn(props) {
-  let { className, onClick, pressed } = props;
+  let { className, pressed, ...rest } = props;
 
   className += " stateful-btn";
   if (pressed) {
@@ -9,10 +9,9 @@ export default function FilterBtn(props) {
   }
 
   const buttonAttrs = {
-    ...props,
+    ...rest,
     className: className.trim(),
-    "aria-pressed": pressed,
-    onClick: onClick
+    "aria-pressed": pressed
   };
 
   return (
