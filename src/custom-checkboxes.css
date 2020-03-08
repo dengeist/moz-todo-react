@@ -11,7 +11,6 @@
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
-  margin-top: 0.75em;
   opacity: 0.00001;
   position: absolute;
   vertical-align: top;
@@ -29,7 +28,7 @@
  */
 .c-cb > label {
   display: inline-block;
-  padding: 0.75em 0.5em;
+  padding-left: 0.25em;
 }
 
 /**
@@ -40,9 +39,11 @@
  */
 .c-cb > label:before,
 .c-cb > input[type="checkbox"] {
+  position: absolute;
+  width: 1.125em;
   height: 1.125em;
   left: 0;
-  width: 1.125em;
+  top: 0.145em;
 }
 
 /**
@@ -65,10 +66,6 @@
   position: absolute;
   border-color: #565656;
   box-shadow: 0 0 0 1px #565656;
-  width: 1.125em;
-  height: 1.125em;
-  left: 0;
-  top: 0.875em;
 }
 
 /**
@@ -81,7 +78,7 @@
   border-right: 4px solid #565656;
   height: 0.85em;
   left: 0.325em;
-  top: 0.875em;
+  top: 0.145em;
   transform-origin: center center;
   transform: rotate(45deg) scale(0);
   width: 0.5em;
