@@ -7,27 +7,21 @@ import "./custom-checkboxes.css";
 
 import App from "./components/App";
 
-const DATA = [
+const TODOS = [
   {
-    name: "Apples",
-    id: "b2c0983f-52f9-4e51-824e-e44ed5bb90e8",
-    checked: false
+    name: "Apples"
   },
   {
-    name: "Oranges",
-    id: "2b1137f3-8941-40f3-801d-b20bb2b459cc",
-    checked: false
+    name: "Oranges"
   },
   {
-    name: "Tangerines",
-    id: "4d9605cb-b233-43e3-9be0-42fc589f5d97",
-    checked: false
+    name: "Tangerines"
   }
 ];
 
 ReactDOM.render(
   <LiveAnnouncer>
-    <App todos={DATA} default />
+    <App />
   </LiveAnnouncer>,
   document.getElementById("root")
 );
