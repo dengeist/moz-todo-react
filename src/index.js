@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { LiveAnnouncer } from "react-aria-live";
 
 import "./index.css";
-import "./custom-form-controls.css";
+import "./custom-checkboxes.css";
 
 import App from "./components/App";
 
