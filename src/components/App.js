@@ -22,11 +22,7 @@ class App extends React.Component {
           </button>
         </form>
         <div className="filters btn-group stack-exception">
-          <button
-            type="button"
-            className="btn toggle-btn toggle-btn__active"
-            aria-pressed="true"
-          >
+          <button type="button" className="btn toggle-btn" aria-pressed="true">
             all
           </button>
           <button type="button" className="btn toggle-btn" aria-pressed="false">
