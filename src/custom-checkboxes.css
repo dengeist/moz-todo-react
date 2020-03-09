@@ -1,129 +1,125 @@
 /* CHECKBOX STYLES */
-.c-cb {
-  display: inline-block;
-  padding-left: 1.4em;
-  position: relative;
+.c-label {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #0b0c0c;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.c-cb > input[type="checkbox"] {
-  font: inherit;
-  -moz-appearance: none;
+.c-input {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  height: 2.5rem;
+  margin-top: 0;
+  padding: 5px;
+  border: 2px solid #0b0c0c;
+  border-radius: 0;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  margin: 0;
-  opacity: 0.00001;
-  position: absolute;
-  vertical-align: top;
-  z-index: 2;
 }
 
-/**
- * Make sure the label is only as wide as the
- * inner text requires it to be.
- * The label should not be a block element
- * or run 100% width of its container.
- * Why would someone expect to click
- * white space on the opposite side of the
- * screen to have a checkbox checked?
- */
-.c-cb > label {
-  display: inline-block;
-  padding-left: 0.25em;
+.c-input:focus {
+  outline: 3px dashed #fd0;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
 }
 
-/**
- * Note, the :before pseudo-element is the new
- * "bounds" or "box" of the checkbox.
- * It must be the same height, width and
- * position of the native checkbox element.
- */
-.c-cb > label:before,
+.c-cb {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  display: block;
+  position: relative;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding-left: 40px;
+  clear: left;
+}
+
 .c-cb > input[type="checkbox"] {
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
   position: absolute;
-  width: 1.125em;
-  height: 1.125em;
-  left: 0;
-  top: 0.145em;
-}
-
-/**
- * Base styles for use on both
- * pseudo elements.
- */
-.c-cb > label:before,
-.c-cb > label:after {
-  border: 1px solid;
-  content: " ";
-  position: absolute;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-}
-
-/**
- * Styles for the custom box boundary.
- */
-.c-cb > label:before {
-  position: absolute;
-  border-color: #565656;
-  box-shadow: 0 0 0 1px #565656;
-}
-
-/**
- * This recreates the "check" mark.
- */
-.c-cb > label:after {
-  position: absolute;
-  border: 0;
-  border-bottom: 4px solid #565656;
-  border-right: 4px solid #565656;
-  height: 0.85em;
-  left: 0.325em;
-  top: 0.145em;
-  transform-origin: center center;
-  transform: rotate(45deg) scale(0);
-  width: 0.5em;
+  z-index: 1;
+  top: -2px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  opacity: 0;
 }
 
 .c-cb > label {
-  width: unset;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
-/**
- * ** Defining States **
- */
-.c-cb > input:checked ~ label:before {
-  border-color: transparent;
-  box-shadow: 0 0 0 2px #0d5192;
+.c-cb > label::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid currentColor;
+  background: transparent;
 }
 
-.c-cb > input:focus ~ label:before {
-  border-color: transparent;
-  box-shadow: 0 0 0 2px #228bec;
-  outline: 2px dashed #228bec;
-  outline-offset: 4px;
+.c-cb > input[type="checkbox"]:focus + label::before {
+  border-width: 4px;
+  outline: 3px dashed #228bec;
 }
 
-.c-cb > input:checked ~ label:after {
-  transform: rotate(45deg) scale(0.8);
+.c-cb > label::after {
+  box-sizing: content-box;
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 18px;
+  height: 7px;
+  transform: rotate(-45deg);
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  opacity: 0;
+  background: transparent;
 }
 
-.c-cb > input:checked:focus ~ label:after {
-  border-color: #228bec;
+.c-cb > input[type="checkbox"]:checked + label::after {
+  opacity: 1;
 }
 
-.c-cb > input[disabled] ~ label {
-  opacity: 0.625;
+@media only screen and (min-width: 40rem) {
+  .c-label,
+  .c-input,
+  .c-cb {
+    font-size: 19px;
+    font-size: 1.9rem;
+    line-height: 1.31579;
+  }
 }
-
-/* placeholder design until a better required
-   design pattern can be created */
-.c-cb > input:invalid ~ label:before {
-  border-color: #f00;
-  box-shadow: 0 0 0 1px #f00;
-}
-
-.c-cb > input:invalid:focus ~ label:before {
-  box-shadow: 0 0 0 2px #f00;
-}
-
-/* END CHECKBOX STYLES */

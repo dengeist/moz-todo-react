@@ -6,4 +6,4 @@ import "./custom-checkboxes.css";
 
 import App from "./components/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App subject="world" />, document.getElementById("root"));
