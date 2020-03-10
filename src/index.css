@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 *:focus {
-  outline: 3px dashed #000;
+  outline: 3px dashed #228bec;
 }
 
 html {
@@ -150,7 +150,6 @@ body {
 }
 
 /* End global styles */
-
 .todoapp {
   background: #fff;
   margin: 2rem 0 4rem 0;
@@ -185,25 +184,27 @@ body {
   min-width: 0;
   padding: 2rem;
   border: 2px solid #000;
-  border-right: 0;
 }
 
 .input__lg:focus {
   border-color: #4d4d4d;
-  outline-offset: -0.6rem;
-  box-shadow: none;
+  box-shadow: inset 0 0 0 2px;
 }
 
 [class*="__lg"] {
-  font-size: 2.4rem;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.9rem;
 }
 
-.new-todo-btn {
-  border-left: 0;
+[class*="__lg"]:not(:last-child) {
+  margin-bottom: 1rem;
 }
-.new-todo-btn:focus {
-  outline-color: #fff;
-  outline-offset: -0.6rem;
+
+@media screen and (min-width: 620px) {
+  [class*="__lg"] {
+    font-size: 2.4rem;
+  }
 }
 
 .filters {
@@ -234,10 +235,6 @@ body {
 
 .todo.editing > form > * + * {
   margin-top: 1.4rem;
-}
-
-.todo-label {
-  display: block;
 }
 
 .todo-text {
