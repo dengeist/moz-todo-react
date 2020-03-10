@@ -14,18 +14,16 @@ class App extends React.Component {
               What needs to be done?
             </label>
           </h2>
-          <div class="left__5-6">
-            <input
-              type="text"
-              id="new-todo-input"
-              className="input input__lg"
-              name="text"
-              autoComplete="off"
-            />
-            <button type="submit" className="btn btn__primary new-todo-btn">
-              Add
-            </button>
-          </div>
+          <input
+            type="text"
+            id="new-todo-input"
+            className="input input__lg"
+            name="text"
+            autoComplete="off"
+          />
+          <button type="submit" className="btn btn__primary btn__lg">
+            Add
+          </button>
         </form>
         <div className="filters btn-group stack-exception">
           <button type="button" className="btn toggle-btn" aria-pressed="true">
