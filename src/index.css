@@ -12,10 +12,14 @@ html {
   font: 62.5% / 1.15 sans-serif;
 }
 
+h1,
+h2 {
+  margin-bottom: 0;
+}
+
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 button {
@@ -165,6 +169,15 @@ body {
   }
 }
 
+.todoapp > * {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.todoapp > form {
+  max-width: 100%;
+}
+
 .todoapp h1 {
   display: block;
   width: 100%;
@@ -181,7 +194,6 @@ body {
 }
 
 .input__lg {
-  min-width: 0;
   padding: 2rem;
   border: 2px solid #000;
 }
@@ -209,14 +221,7 @@ body {
 
 .filters {
   width: 100%;
-  max-width: 30rem;
   margin: 0 auto;
-}
-
-.list-heading {
-  font-size: 1.8rem;
-  line-height: 1.25;
-  margin: 0;
 }
 
 /* Todo item styles */
@@ -288,4 +293,130 @@ body {
 
 .stack-exception {
   margin-top: 1.2rem;
+}
+
+/* CHECKBOX STYLES */
+.c-label {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #0b0c0c;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.c-input {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  height: 2.5rem;
+  margin-top: 0;
+  padding: 5px;
+  border: 2px solid #0b0c0c;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c-input:focus {
+  outline: 3px dashed #fd0;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c-cb {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  display: block;
+  position: relative;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding-left: 40px;
+  clear: left;
+}
+
+.c-cb > input[type="checkbox"] {
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  top: -2px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  opacity: 0;
+}
+
+.c-cb > label {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.c-cb > label::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid currentColor;
+  background: transparent;
+}
+
+.c-cb > input[type="checkbox"]:focus + label::before {
+  border-width: 4px;
+  outline: 3px dashed #228bec;
+}
+
+.c-cb > label::after {
+  box-sizing: content-box;
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 18px;
+  height: 7px;
+  transform: rotate(-45deg);
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  opacity: 0;
+  background: transparent;
+}
+
+.c-cb > input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 40rem) {
+  .c-label,
+  .c-input,
+  .c-cb {
+    font-size: 19px;
+    font-size: 1.9rem;
+    line-height: 1.31579;
+  }
 }

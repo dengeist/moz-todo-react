@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
 import React from "react";
-import Todo from "./Todo";
 
 class App extends React.Component {
   render() {
@@ -27,18 +26,22 @@ class App extends React.Component {
         </form>
         <div className="filters btn-group stack-exception">
           <button type="button" className="btn toggle-btn" aria-pressed="true">
-            all
+            <span className="visually-hidden">Show </span>
+            <span>all </span>
+            <span className="visually-hidden"> tasks</span>
           </button>
           <button type="button" className="btn toggle-btn" aria-pressed="false">
-            active
+            <span className="visually-hidden">Show </span>
+            <span>active </span>
+            <span className="visually-hidden">tasks</span>
           </button>
           <button type="button" className="btn toggle-btn" aria-pressed="false">
-            completed
+            <span className="visually-hidden">Show </span>
+            <span>completed </span>
+            <span className="visually-hidden"> tasks</span>
           </button>
         </div>
-        <h2 id="list-heading" className="list-heading">
-          3 tasks remaining
-        </h2>
+        <h2 id="list-heading">3 tasks remaining</h2>
         <ul
           role="list"
           className="todo-list stack-large stack-exception"
@@ -46,7 +49,7 @@ class App extends React.Component {
         >
           <li className="todo stack-small">
             <div className="c-cb">
-              <input id="todo-0" type="checkbox" />
+              <input id="todo-0" type="checkbox" defaultChecked={true} />
               <label className="todo-label" htmlFor="todo-0">
                 Eat
               </label>
@@ -62,7 +65,7 @@ class App extends React.Component {
           </li>
           <li className="todo stack-small">
             <div className="c-cb">
-              <input id="todo-1" type="checkbox" />
+              <input id="todo-1" type="checkbox" defaultChecked={false} />
               <label className="todo-label" htmlFor="todo-1">
                 Sleep
               </label>
@@ -78,7 +81,7 @@ class App extends React.Component {
           </li>
           <li className="todo stack-small">
             <div className="c-cb">
-              <input id="todo-2" type="checkbox" />
+              <input id="todo-2" type="checkbox" defaultChecked={false} />
               <label className="todo-label" htmlFor="todo-2">
                 Repeat
               </label>
