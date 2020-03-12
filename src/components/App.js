@@ -3,7 +3,7 @@
 import React from "react";
 import Todo from "./Todo";
 
-function App() {
+function App(props) {
   return (
     <div className="todoapp stack-large">
       <form>
@@ -26,18 +26,22 @@ function App() {
       </form>
       <div className="filters btn-group stack-exception">
         <button type="button" className="btn toggle-btn" aria-pressed="true">
-          all
+          <span className="visually-hidden">Show </span>
+          <span>all </span>
+          <span className="visually-hidden"> tasks</span>
         </button>
         <button type="button" className="btn toggle-btn" aria-pressed="false">
-          active
+          <span className="visually-hidden">Show </span>
+          <span>active </span>
+          <span className="visually-hidden">tasks</span>
         </button>
         <button type="button" className="btn toggle-btn" aria-pressed="false">
-          completed
+          <span className="visually-hidden">Show </span>
+          <span>completed </span>
+          <span className="visually-hidden"> tasks</span>
         </button>
       </div>
-      <h2 id="list-heading" className="list-heading">
-        3 tasks remaining
-      </h2>
+      <h2 id="list-heading">3 tasks remaining</h2>
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
