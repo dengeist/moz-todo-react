@@ -5,4 +5,10 @@ import "./index.css";
 
 import App from "./components/App";
 
-ReactDOM.render(<App subject="world" />, document.getElementById("root"));
+const DATA = [
+  { name: "Eat", completed: true },
+  { name: "Sleep", completed: false },
+  { name: "Repeat", completed: false }
+];
+
+ReactDOM.render(<App tasks={DATA} />, document.getElementById("root"));
