@@ -4,6 +4,7 @@ import React from "react";
 import Todo from "./Todo";
 
 function App(props) {
+  const taskList = props.tasks.map(task => task.name);
   return (
     <div className="todoapp stack-large">
       <form>
@@ -47,9 +48,7 @@ function App(props) {
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
-        <Todo name="Eat" completed={true} />
-        <Todo name="Sleep" completed={false} />
-        <Todo name="Repeat" completed={false} />
+        {taskList}
       </ul>
     </div>
   );
