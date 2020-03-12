@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
 import React from "react";
-import Todo from "./Todo";
 
 function App() {
   return (
