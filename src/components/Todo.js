@@ -4,7 +4,7 @@ export default function Todo(props) {
   const [isEditing, setEditing] = useState(false);
 
   const editingTemplate = (
-    <form class="stack-small">
+    <form className="stack-small">
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
           New name for {props.name}
