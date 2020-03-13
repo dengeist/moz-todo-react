@@ -4,9 +4,7 @@ import React from "react";
 import Todo from "./Todo";
 
 function App(props) {
-  const taskList = props.tasks.map(task => (
-    <Todo name={task.name} completed={task.completed} id={task.id} />
-  ));
+  const taskList = props.tasks.map(task => <Todo {...task} key={task.id} />);
   return (
     <div className="todoapp stack-large">
       <form>
