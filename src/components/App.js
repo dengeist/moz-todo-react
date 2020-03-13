@@ -6,13 +6,13 @@ import FilterButton from "./FilterButton";
 import Todo from "./Todo";
 
 function App(props) {
-  function addTodo(name) {
+  function addTask(name) {
     alert(name);
   }
   const taskList = props.tasks.map(task => <Todo {...task} key={task.id} />);
   return (
     <div className="todoapp stack-large">
-      <Form addTodo={addTodo} />
+      <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />

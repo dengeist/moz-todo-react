@@ -3,7 +3,7 @@ import React from "react";
 function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
-    props.addTodo("Say hello!");
+    props.addTask("Say hello!");
   }
   return (
     <form onSubmit={handleSubmit}>
