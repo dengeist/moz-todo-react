@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Form(props) {
+  const [name, updateName] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     props.addTask("Say hello!");
