@@ -3,6 +3,10 @@ import React, { useState } from "react";
 function Form(props) {
   const [name, updateName] = useState("");
 
+  function handleChange(e) {
+    updateName(e.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     props.addTask("Say hello!");
@@ -21,6 +25,7 @@ function Form(props) {
         className="input input__lg"
         name="text"
         autoComplete="off"
+        onChange={handleChange}
       />
       <button type="submit" className="btn btn__primary btn__lg">
         Add
