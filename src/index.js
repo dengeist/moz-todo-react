@@ -6,9 +6,9 @@ import "./index.css";
 import App from "./components/App";
 
 const DATA = [
-  { name: "Eat", completed: true },
-  { name: "Sleep", completed: false },
-  { name: "Repeat", completed: false }
+  { id: "task-0", name: "Eat", completed: true },
+  { id: "task-1", name: "Sleep", completed: false },
+  { id: "task-2", name: "Repeat", completed: false }
 ];
 
 ReactDOM.render(<App tasks={DATA} />, document.getElementById("root"));
