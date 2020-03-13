@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
 import React, { useState } from "react";
+import nanoid from "nanoid";
+
 import Form from "./Form";
 import FilterButton from "./FilterButton";
 import Todo from "./Todo";
@@ -10,7 +12,7 @@ function App(props) {
   const taskList = tasks.map(task => <Todo {...task} key={task.id} />);
 
   function addTask(name) {
-    const newTask = { id: "id", name: name, completed: false };
+    const newTask = { id: nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
   }
 
