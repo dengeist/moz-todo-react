@@ -22,7 +22,7 @@ export default function Todo(props) {
       </div>
     </form>
   );
-  const defaultTemplate = (
+  const viewTemplate = (
     <div className="stack-small">
       <div className="c-cb">
         <input id={props.id} type="checkbox" defaultChecked={props.completed} />
@@ -44,7 +44,5 @@ export default function Todo(props) {
       </div>
     </div>
   );
-  return (
-    <li className="todo">{isEditing ? editingTemplate : defaultTemplate}</li>
-  );
+  return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
 }
