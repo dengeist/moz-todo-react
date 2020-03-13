@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 function Form(props) {
-  const [name, updateName] = useState("");
+  const [name, setName] = useState("");
 
   function handleChange(e) {
-    updateName(e.target.value);
+    setName(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     props.addTask(name);
-    updateName("");
+    setName("");
   }
   return (
     <form onSubmit={handleSubmit}>
