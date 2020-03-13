@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Form(props) {
-  const [name, updateName] = useState("");
+  const [name, updateName] = useState("AAA");
 
   function handleChange(e) {
     updateName(e.target.value);
