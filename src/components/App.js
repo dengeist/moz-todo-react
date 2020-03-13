@@ -7,15 +7,51 @@ import Form from "./Form";
 import FilterButton from "./FilterButton";
 import Todo from "./Todo";
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: task => !task.completed,
+  Complete: task => task.completed
+};
+
 function App(props) {
+  const [filter, setFilter] = useState("All");
   const [tasks, setTasks] = useState(props.tasks);
-  const taskList = tasks.map(task => (
-    <Todo {...task} deleteTask={deleteTask} editTask={editTask} key={task.id} />
+
+  const filterList = Object.keys(FILTER_MAP).map(name => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
   ));
+  const taskList = tasks
+    .filter(FILTER_MAP[filter])
+    .map(task => (
+      <Todo
+        {...task}
+        checkTask={checkTask}
+        deleteTask={deleteTask}
+        editTask={editTask}
+        key={task.id}
+      />
+    ));
 
   function addTask(name) {
     const newTask = { id: nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
+  }
+
+  function checkTask(id) {
+    const updatedTaskList = tasks.map(task => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        // reassign the task's name
+        task.completed = !task.completed;
+      }
+      return task;
+    });
+    setTasks(updatedTaskList);
   }
 
   function deleteTask(id) {
@@ -35,15 +71,12 @@ function App(props) {
     setTasks(editedTaskList);
   }
 
+  const headingText = taskList.length + " tasks remaining";
   return (
     <div className="todoapp stack-large">
       <Form addTask={addTask} />
-      <div className="filters btn-group stack-exception">
-        <FilterButton />
-        <FilterButton />
-        <FilterButton />
-      </div>
-      <h2 id="list-heading">3 tasks remaining</h2>
+      <div className="filters btn-group stack-exception">{filterList}</div>
+      <h2 id="list-heading">{headingText}</h2>
       <ul
         role="list"
         className="todo-list stack-large stack-exception"

@@ -48,7 +48,12 @@ export default function Todo(props) {
   const viewTemplate = (
     <div className="stack-small">
       <div className="c-cb">
-        <input id={props.id} type="checkbox" defaultChecked={props.completed} />
+        <input
+          id={props.id}
+          type="checkbox"
+          checked={props.completed}
+          onChange={() => props.checkTask(props.id)}
+        />
         <label className="todo-label" htmlFor={props.id}>
           {props.name}
         </label>
