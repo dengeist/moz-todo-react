@@ -10,7 +10,8 @@ function App(props) {
   const taskList = tasks.map(task => <Todo {...task} key={task.id} />);
 
   function addTask(name) {
-    alert(name);
+    const newTask = { id: "id", name: name, completed: false };
+    setTasks([...tasks, newTask]);
   }
 
   return (
