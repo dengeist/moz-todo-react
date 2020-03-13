@@ -10,7 +10,7 @@ import Todo from "./Todo";
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const taskList = tasks.map(task => (
-    <Todo {...task} deleteTask={deleteTask} key={task.id} />
+    <Todo {...task} deleteTask={deleteTask} editTask={editTask} key={task.id} />
   ));
 
   function addTask(name) {
@@ -21,6 +21,18 @@ function App(props) {
   function deleteTask(id) {
     const remainingTasks = tasks.filter(task => task.id !== id);
     setTasks(remainingTasks);
+  }
+
+  function editTask(id, newName) {
+    const editedTaskList = taskList.map(task => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        // reassign the task's name
+        task.name = newName;
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
   }
 
   return (
