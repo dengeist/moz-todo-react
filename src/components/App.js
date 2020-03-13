@@ -9,11 +9,17 @@ import Todo from "./Todo";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
-  const taskList = tasks.map(task => <Todo {...task} key={task.id} />);
+  const taskList = tasks.map(task => (
+    <Todo {...task} deleteTask={deleteTask} key={task.id} />
+  ));
 
   function addTask(name) {
     const newTask = { id: nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
+  }
+
+  function deleteTask(id) {
+    console.log(id);
   }
 
   return (
