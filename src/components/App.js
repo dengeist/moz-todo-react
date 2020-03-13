@@ -1,15 +1,18 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import React from "react";
+import React, { useState } from "react";
 import Form from "./Form";
 import FilterButton from "./FilterButton";
 import Todo from "./Todo";
 
 function App(props) {
+  const [tasks, setTasks] = useState(props.tasks);
+  const taskList = tasks.map(task => <Todo {...task} key={task.id} />);
+
   function addTask(name) {
     alert(name);
   }
-  const taskList = props.tasks.map(task => <Todo {...task} key={task.id} />);
+
   return (
     <div className="todoapp stack-large">
       <Form addTask={addTask} />
