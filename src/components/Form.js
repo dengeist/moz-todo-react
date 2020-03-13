@@ -1,8 +1,12 @@
 import React from "react";
 
 function Form(props) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Hello, world!");
+  }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1>TodoMatic</h1>
       <h2 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
