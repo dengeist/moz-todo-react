@@ -19,7 +19,8 @@ function App(props) {
   }
 
   function deleteTask(id) {
-    console.log(id);
+    const remainingTasks = tasks.filter(task => task.id !== id);
+    setTasks(remainingTasks);
   }
 
   return (
