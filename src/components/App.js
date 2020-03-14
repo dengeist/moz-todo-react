@@ -46,7 +46,7 @@ function App(props) {
     const updatedTaskList = tasks.map(task => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
-        // reassign the task's name
+        // invert the task's "completed" prop
         task.completed = !task.completed;
       }
       return task;
