@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
+/**
+ * Capture the previous value of a state or prop.
+ * @see https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state
+ * @param {*} value The data whose previous value you wish to track
+ */
 function usePrevious(value) {
   const ref = useRef();
   useEffect(() => {
@@ -15,11 +20,13 @@ export default function Todo(props) {
 
   const focusTargetRef = useRef(null);
 
+  // Will manage focus every time the `wasEditing` const changes
   useEffect(() => {
-    if (wasEditing !== undefined && wasEditing !== isEditing) {
+    // Do not run if this is the very first time the component loads
+    if (wasEditing !== undefined) {
       focusTargetRef.current.focus();
     }
-  }, [isEditing, wasEditing]);
+  }, [wasEditing]);
 
   function handleChange(e) {
     setNewName(e.target.value);
