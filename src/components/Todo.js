@@ -22,11 +22,12 @@ export default function Todo(props) {
 
   // Will manage focus every time the `wasEditing` const changes
   useEffect(() => {
-    // Do not run if this is the very first time the component loads
-    if (wasEditing !== undefined) {
+    // Only execute after the first load,
+    // and when the editing state has changed
+    if (wasEditing !== undefined && wasEditing !== isEditing) {
       focusTargetRef.current.focus();
     }
-  }, [wasEditing]);
+  }, [wasEditing, isEditing]);
 
   function handleChange(e) {
     setNewName(e.target.value);
