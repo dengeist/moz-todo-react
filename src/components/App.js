@@ -13,11 +13,13 @@ const FILTER_MAP = {
   Completed: task => task.completed
 };
 
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 function App(props) {
   const [filter, setFilter] = useState("All");
   const [tasks, setTasks] = useState(props.tasks);
 
-  const filterList = Object.keys(FILTER_MAP).map(name => (
+  const filterList = FILTER_NAMES.map(name => (
     <FilterButton
       key={name}
       name={name}
@@ -30,7 +32,7 @@ function App(props) {
     .map(task => (
       <Todo
         {...task}
-        checkTask={checkTask}
+        toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
         key={task.id}
@@ -42,7 +44,7 @@ function App(props) {
     setTasks([...tasks, newTask]);
   }
 
-  function checkTask(id) {
+  function toggleTaskCompleted(id) {
     const updatedTaskList = tasks.map(task => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
