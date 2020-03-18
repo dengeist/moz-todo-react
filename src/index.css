@@ -53,7 +53,6 @@ textarea {
 }
 button,
 input {
-  /* 1 */
   overflow: visible;
 }
 
@@ -65,11 +64,9 @@ body {
   width: 100%;
   max-width: 68rem;
   margin: 0 auto;
-  font: 1.6rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 1.6rem/1.25 Arial, sans-serif;
   background-color: #f5f5f5;
   color: #4d4d4d;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 @media screen and (min-width: 620px) {
@@ -140,17 +137,6 @@ body {
   margin: 0;
   flex: 0 0 100%;
   text-align: center;
-}
-
-.left__5-6 {
-  display: flex;
-}
-
-.left__5-6 > :first-child {
-  flex: 6 6 auto;
-}
-.left__5-6 > :last-child {
-  flex: 1.5 1.5 100px;
 }
 
 /* End global styles */
