@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import nanoid from "nanoid";
 
 import Form from "./Form";
@@ -18,6 +18,8 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   const [filter, setFilter] = useState("All");
   const [tasks, setTasks] = useState(props.tasks);
+
+  const newTodoInputRef = useRef(null);
 
   const filterList = FILTER_NAMES.map(name => (
     <FilterButton
@@ -59,6 +61,7 @@ function App(props) {
   function deleteTask(id) {
     const remainingTasks = tasks.filter(task => task.id !== id);
     setTasks(remainingTasks);
+    newTodoInputRef.current.focus();
   }
 
   function editTask(id, newName) {
@@ -76,7 +79,7 @@ function App(props) {
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
   return (
     <div className="todoapp stack-large">
-      <Form addTask={addTask} />
+      <Form addTask={addTask} ref={newTodoInputRef} />
       <div className="filters btn-group stack-exception">{filterList}</div>
       <h2 id="list-heading">{headingText}</h2>
       <ul
