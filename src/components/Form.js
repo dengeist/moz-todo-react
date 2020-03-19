@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form(props) {
+function Form(props, ref) {
   const [name, setName] = useState("");
 
   function handleChange(e) {
@@ -28,6 +28,7 @@ function Form(props) {
         autoComplete="off"
         value={name}
         onChange={handleChange}
+        ref={ref}
       />
       <button type="submit" className="btn btn__primary btn__lg">
         Add
@@ -36,4 +37,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default React.forwardRef(Form);
