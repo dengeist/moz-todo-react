@@ -12,22 +12,23 @@ export function usePrevious(value) {
   });
   return ref.current;
 }
-const equalsFirstElOfArray = (el, i, arr) => arr[0] === el;
+
 /**
  * Create a ref whose current value will be focused when the provided dependencies do not match.
- * @param {Boolean[]} stateDeps An array whose elements that will be compared to determine if the hook should run.
+ * @param {Array} deps An array whose elements that will be compared to determine if the hook should run.
+ * @param {Boolean} condition The condition that must be met for the hook to execute.
  * @param {Boolean} [needsTabIndex] Whether or not the element targeted by the ref needs `tabindex=-1` in order to be focusable.
  */
-export function useRefwithFocus(stateDeps, needsTabIndex) {
+export function useRefwithFocus(deps, condition, needsTabIndex) {
   const ref = useRef(null);
   useEffect(() => {
-    if (!stateDeps.every(equalsFirstElOfArray)) {
+    if (condition) {
       const el = ref.current;
       if (needsTabIndex) el.setAttribute("tabindex", "-1");
       el.focus();
       el.removeAttribute("tabindex");
     }
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  }, stateDeps);
+  }, deps);
   return ref;
 }
