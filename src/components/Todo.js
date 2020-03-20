@@ -1,17 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-/**
- * Capture the previous value of a state or prop.
- * @see https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state
- * @param {*} value The data whose previous value you wish to track
- */
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
+import { usePrevious } from "../utils";
 
 export default function Todo(props) {
   const [isEditing, setEditing] = useState(false);

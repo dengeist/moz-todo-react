@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import nanoid from "nanoid";
 
 import Form from "./Form";
 import FilterButton from "./FilterButton";
 import Todo from "./Todo";
+
+import { usePrevious } from "../utils";
 
 const FILTER_MAP = {
   All: () => true,
@@ -18,6 +20,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   const [filter, setFilter] = useState("All");
   const [tasks, setTasks] = useState(props.tasks);
+  const prevTaskLength = usePrevious(tasks.length);
 
   const listHeadingRef = useRef(null);
 
@@ -61,7 +64,6 @@ function App(props) {
   function deleteTask(id) {
     const remainingTasks = tasks.filter(task => task.id !== id);
     setTasks(remainingTasks);
-    listHeadingRef.current.focus();
   }
 
   function editTask(id, newName) {
@@ -75,6 +77,13 @@ function App(props) {
     });
     setTasks(editedTaskList);
   }
+
+  useEffect(() => {
+    if (tasks.length - prevTaskLength === -1) {
+      listHeadingRef.current.focus();
+    }
+  }, [tasks.length, prevTaskLength]);
+
   const tasksNoun = taskList.length > 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
   return (
