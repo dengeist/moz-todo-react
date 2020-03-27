@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
-import App from "./components/App";
+import App from "./App";
 
 const DATA = [
   { id: "task-0", name: "Eat", completed: true },

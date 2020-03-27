@@ -3,11 +3,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import nanoid from "nanoid";
 
-import FilterButton from "./FilterButton";
-import TodoForm from "./TodoForm";
-import TodoItem from "./TodoItem";
+import FilterButton from "./components/FilterButton";
+import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem";
 
-import { usePrevious } from "../utils";
+import { usePrevious } from "./utils";
 
 const FILTER_MAP = {
   All: () => true,
