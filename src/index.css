@@ -136,6 +136,16 @@ body {
   text-align: center;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
 /* End global styles */
 .todoapp {
   background: #fff;
@@ -232,16 +242,6 @@ body {
 
 .todo-text:focus {
   box-shadow: inset 0 0 0 2px;
-}
-
-.visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap; /* added line */
 }
 
 [class^="stack"] > * {
@@ -348,8 +348,6 @@ body {
 }
 
 @media only screen and (min-width: 40rem) {
-  .c-label,
-  .c-input,
   .c-cb {
     font-size: 19px;
     font-size: 1.9rem;
