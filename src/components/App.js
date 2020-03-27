@@ -32,17 +32,16 @@ function App(props) {
       setFilter={setFilter}
     />
   ));
-  const taskList = tasks
-    .filter(FILTER_MAP[filter])
-    .map(task => (
+  const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
+    <li key={task.id}>
       <Todo
         {...task}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
-        key={task.id}
       />
-    ));
+    </li>
+  ));
 
   function addTask(name) {
     const newTask = { id: nanoid(), name: name, completed: false };

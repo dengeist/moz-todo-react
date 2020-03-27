@@ -30,7 +30,7 @@ export default function Todo(props) {
   }
 
   const editingTemplate = (
-    <form className="stack-small" onSubmit={handleSubmit}>
+    <form className="todo stack-small" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
           New name for {props.name}
@@ -61,7 +61,7 @@ export default function Todo(props) {
     </form>
   );
   const viewTemplate = (
-    <div className="stack-small">
+    <div className="todo stack-small">
       <div className="c-cb">
         <input
           id={props.id}
@@ -92,5 +92,5 @@ export default function Todo(props) {
       </div>
     </div>
   );
-  return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
+  return isEditing ? editingTemplate : viewTemplate;
 }
