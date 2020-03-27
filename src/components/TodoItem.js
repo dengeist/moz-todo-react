@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { usePrevious } from "../utils";
 
-export default function Todo(props) {
+export default function TodoItem(props) {
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const wasEditing = usePrevious(isEditing);

@@ -3,9 +3,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import nanoid from "nanoid";
 
-import Form from "./Form";
 import FilterButton from "./FilterButton";
-import Todo from "./Todo";
+import TodoForm from "./TodoForm";
+import TodoItem from "./TodoItem";
 
 import { usePrevious } from "../utils";
 
@@ -34,7 +34,7 @@ function App(props) {
   ));
   const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
     <li key={task.id}>
-      <Todo
+      <TodoItem
         {...task}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
@@ -88,7 +88,7 @@ function App(props) {
   return (
     <div className="todoapp">
       <h1>TodoMatic</h1>
-      <Form addTask={addTask} />
+      <TodoForm addTask={addTask} />
       <div className="filters btn-group stack-exception">{filterList}</div>
       <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>
         {headingText}
